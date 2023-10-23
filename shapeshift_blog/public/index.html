@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShapeShift Blog</title>
+</head>
+<body>
+    <header>
+        <h1>Blog Posts</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="blog-post">
+            <h2>{{blogPost.title}}</h2>
+            <p class="date">{{blogPost.date}}</p>
+            <p class="author">By {{blogPost.author}}</p>
+            <p>{{blogPost.content}}</p>
+        </section>
+
+        <section class="blog-post">
+            <h2>{{blogPost.title}}</h2>
+            <p class="date">{{blogPost.date}}</p>
+            <p class="author">By {{blogPost.author}}</p>
+            <p>{{blogPost.content}}</p>
+        </section>
+        
+        <!-- Add more blog posts dynamically using Handlebars -->
+    </main>
+    <footer>
+        <p>&copy; 2023 Fitness Blog</p>
+    </footer>
+    <script src="handlebars.js"></script>
+    <script id="blog-template" type="text/x-handlebars-template">
+        <!-- Define your Handlebars template here -->
+        <!-- Use {{}} to insert dynamic data from your JavaScript -->
+    </script>
+    <script src="../../main.js"></script>
+</body>
+</html>
