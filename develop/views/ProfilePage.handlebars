@@ -1,94 +1,254 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
-
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Profile Page:</h3>
-
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
-      </div>
-      <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
-      </div>
-      <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
-
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
-    <!-- TODO: Loop of the projects array and display each project name along with a button to delete each project -->
-  </div>
-  {{/if}}
-</div>
-
-<script src="./js/profile.js"></script>
-
-
-
-<!-- This is the Search Bar Autocomplete -->
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Autocomplete - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-  <script>
-    // have to change the code below to specific excersizes 
-  $( function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  } );
-  </script>
-</head>
-<body>
- 
-<div class="ui-widget">
-  <label for="tags">Tags: </label>
-  <input id="tags">
-</div>
- 
- 
-</body>
-</html>
+    
+    <body>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+          <title>jQuery UI Autocomplete - Default functionality</title>
+          <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+          <link rel="stylesheet" href="/resources/demos/style.css">
+          <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+          <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+          <link rel="stylesheet" href="../public/css/profilepage.css">
+          <script>
+// <!-- This is the Search Bar Autocomplete -->
+      // have to change the code below to specific excersizes 
+    $( function() {
+      var availableTags = [
+        "ActionScript",
+        "AppleScript",
+        "Asp",
+        "BASIC",
+        "C",
+        "C++",
+        "Clojure",
+        "COBOL",
+        "ColdFusion",
+        "Erlang",
+        "Fortran",
+        "Groovy",
+        "Haskell",
+        "Java",
+        "JavaScript",
+        "Lisp",
+        "Perl",
+        "PHP",
+        "Python",
+        "Ruby",
+        "Scala",
+        "Scheme"
+      ];
+      $( "#tags" ).autocomplete({
+        source: availableTags
+      });
+    } );
+    </script>
+  </head>
+  <body>
+   
+  <div class="ui-widget">
+    <label for="tags">Tags: </label>
+    <input id="tags">
+  </div>
+
+  <header id="container">
+
+  </header>
+  <section>
+      <div id="body-container">
+          <div class="upper-body">
+              <div class="upper-body-data focus" id="general" tabindex="1">General</div>
+              <div class="upper-body-data" id="Body_measurements" tabindex="1">Body measurements</div>
+              <div class="upper-body-data" id="privacy" tabindex="1">Privacy</>
+              </div>
+          </div>
+          <div id="general-container">
+              <div id="general-name">
+                  <h2>General</h2>
+                  <p>Delete profile</p>
+              </div>
+              <div>
+                  <form>
+                    <label class="email" for="email-id">Email: </label>
+                    <input class="input-box" id="email-id" type="email"><br>
+                      <label for="name1">Your name:</label>
+                      <input id="name1" class="input-box" type="text"><br>
+
+                      <div class="form-group">
+                          <label id="gender" for="gender-option" class=control-label">Gender:</label>
+                          <!-- <div class="genders"> -->
+                          <label id="gender-option" for="gender_male" class="radio">
+                              <input id="gender_male" type="radio" name="gender" value="male">
+                              Male
+                          </label><br>
+
+                          <label id="gender-option" for="gender_female" class="radio">
+                              <input id="gender_female" type="radio" name="gender" value="female">
+                              Female
+                          </label>
+                          <!-- </div> -->
+
+                      </div><br>
+
+                      <label class="b-day" for="b-day b-month">Birth date:</label>
+                      <select class="input-box" name="birth-data" id="b-month" class="birth-data">
+                          <option>-Month-</option>
+                      </select>
+                      <select class="input-box" name="birth-data" id="b-day" class="birth-data">
+                          <option>-Day-</option>
+                      </select>
+                      <select class="input-box" name="birth-data" id="b-year" class="birth-data">
+                          <option>-Year-</option>
+                      </select><br>
+
+                      <script>
+                        const monthDropdown = document.getElementById("b-month");
+                        const dayDropdown = document.getElementById("b-day");
+                        const yearDropdown = document.getElementById("b-year");
+                      
+                        // Function to populate the month dropdown
+                        for (let i = 1; i <= 12; i++) {
+                          const option = document.createElement("option");
+                          option.value = i;
+                          option.textContent = i;
+                          monthDropdown.appendChild(option);
+                        }
+                      
+                        // Function to populate the day dropdown
+                        for (let i = 1; i <= 31; i++) {
+                          const option = document.createElement("option");
+                          option.value = i;
+                          option.textContent = i;
+                          dayDropdown.appendChild(option);
+                        }
+                      
+                        // Function to populate the year dropdown
+                        const currentYear = new Date().getFullYear();
+                        for (let i = currentYear; i >= currentYear - 100; i--) {
+                          const option = document.createElement("option");
+                          option.value = i;
+                          option.textContent = i;
+                          yearDropdown.appendChild(option);
+                        }
+                      </script>
+                      
+
+
+                      
+                      
+                      <label for="password1">Password: </label>
+                      <input class="input-box" id="password1" type="password"><br>
+                      <label for="password2">Confirmed Password: </label>
+                      <input class="input-box" id="password2" type="password"><br>
+
+
+                      <label for="units">Preferred units:</label>
+                      <select class="input-box" name="units" id="units">
+                          <option> Metric(kgs)</option>
+                          <option> Imperial (lbs)</option>
+                      </select>
+                      <br>
+
+                      <label for="timezones">Timezone:</label>
+                      <select class="input-box" name="timezones" id="timezones">
+                      </select><br>
+
+
+
+                      <div class="form-group">
+                          <label for="user-description" class="col-sm-3 control-label">Your description for profile
+                              page:</label>
+                          <textarea id="user-description" name="user-description" class="input-box" rows="2"
+                              style="resize: vertical;"></textarea>
+                      </div><br>
+
+                     
+              </div>
+
+          </div>
+
+          <div class="not-display" id="Body_measurements-container">
+              <h2>Body measurements</h2>
+              <div class="height-input">
+                  <label for="height1 height2">Height:</label>
+                  <input class="input-box BM-input BM-height" type="number" id="height1"><span
+                      class="input-box units">m</span>
+                  <input class="input-box BM-input BM-height" type="number" id="height2"><span
+                      class="input-box units">cm</span>
+              </div><br>
+              <label for="Waist">Waist:</label>
+              <input class="input-box BM-input" type="number" id="Waist"><span class="input-box units">cm</span>
+              <br>
+              <label for="Hips">Hips:</label>
+              <input class="input-box BM-input" type="number" id="Hips"><span class="input-box units">cm</span>
+              <br>
+              <label for="Neck">Neck:</label>
+              <input class="input-box BM-input" type="number" id="Neck"><span class="input-box units">cm</span>
+              <br>
+          </div>
+
+          <div class="not-display" id="privacy-data">
+              <div class="privacy_name_image">
+                  <img src="insert shapeshifter logo here" alt="lock">
+                  <h2>Privacy</h2>
+              </div>
+              <div class="private_public not-display private">
+                  <b>Your profile is private</b><br>
+                  <p><span class="isPrivate">Make your workouts public</span>,
+                      so others can see them</p>
+              </div>
+              <div class="private_public public">
+
+                  <b>Your profile is public</b><br>
+                  <p><span class="isPublic">Make your workouts private</span>,
+                      so only you can see them</p>
+
+              </div>
+              <div class="email-notification-div">
+                  <label for="email_notifications" class="checkbox">
+                      <input id="email_notifications" type="checkbox" name="email_notifications" checked="checked"
+                          value="1">
+                      Send e-mail notifications when receiving new messages.
+                  </label>
+              </div>
+
+          </div>
+
+          <div class="save-button ">
+              <button type="submit" class="save">Save</button>
+          </div>
+      </div>
+
+      </form>
+      </div>
+      <div id="profile">
+          <div class="profile-image">
+              <img src="../public/images/04012019-25.jpg">
+          </div>
+
+          <button class="profile-pic-button">Change profile picture</button>
+          <h4>0</h4>
+          <p>Workouts added</p>
+          <h4>0 lbs</h4>
+          <p>Lifted</p>
+
+      </div>
+  </section>
+
+
+
+
+
+  <footer>
+      <div class="footeri">
+
+      </div>
+  </footer>
+
+<script src="../models/profile.js"></script>
+
+  </body>
+  </html>
+  
