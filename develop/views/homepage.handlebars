@@ -1,86 +1,57 @@
+<div class="jumbotron">
+    <h1>ShapeShift</h1>
+</div>
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+            <div class="side">
+                <div>
+                    <a href="/workout/{{workout[0].workout.id}}">
+                        <p> {{format_date workout[0].Workout_date}}</p>
+                        <p>{{workout[0].workout.details}}</p>
+                    </a>
+                </div>
+                <div>
+                  <a href="/workout/{{workout.workout[1].id}}">
+                        <p> {{format_date workout[1].Workout_date}}</p>
+                        <p> {{workout[1].workout.details}}</p>
+                    </a>
+                </div>
+                <div>
+                 <a href="/workout/{{workout[2].workout.id}}">
+                        <p> {{format_date workout[2].Workout_date}}</p>
+                        <p> {{workout[2].workout.details}}</p>
+                    </a>
+                </div>
 
-        <div class="jumbotron">
-            <h1>ShapeShift</h1>
+            </div>
+
         </div>
         <div class="container-fluid text-center">
             <div class="row content">
-                <div class="col-sm-2 sidenav">
-                    <div class="side">
-                        <div>
-                            <a href="#">
-                                <p>Top Workouts</p>
-                                <p> workout example where code from top workouts will be put</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <p>Top Workout</p>
-                                <p> workout example where code from top workouts will be put</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <p>Top Workout</p>
-                                <p> workout example where code from Top workouts will be put</p>
-                            </a>
-                        </div>
+                <div class="col-sm-8 text-center">
+                    <h1>ShapeShift</h1>
+                    <h3>Have YOU been coding and havent left your chair all day?</h3>
+                    <h3>Wanting to change your shape?</h3>
+                    <h3>ShapeShift is for you!</h3>
+                    <button type="button" class="btn btn-default">Get Started</button>
+
+                    <h2>Random blog posts</h2>
+                    <div class="post">
+                        <h3>{{blog.title}}</h3>
+                        <p>{{blog.description}}</p>
 
                     </div>
-
                 </div>
-                <div class="container-fluid text-center">
-                    <div class="row content">
-                        <div class="col-sm-8 text-center">
-                            <h1>ShapeShift</h1>
-                            <h3>Have YOU been coding and havent left your chair all day?</h3>
-                            <h3>Wanting to change your shape?</h3>
-                            <h3>ShapeShift is for you!</h3>
-                            <button type="button" class="btn btn-default">Get Started</button>
-
-                            <h2>Recent Posts</h2>
-
-                            <div class="post">
-                                
-                                <p>This is the caption for the blog.</p>
-                            </div>
-
-                            <div class="post">
-                                <h3>{{blog.title}}</h3>
-                                <p>{{blog.description}}</p>
-                        
-                            </div>
-                        </div>
-                        <div class="container-fluid text-center">
-                            <div class="row content">
-                                <div class="col-sm-2 sidenav">
-                                    <div class="side">
-                                        <div>
-                                            <a href="#">
-                                                <p>{{blog.title}}</p>
-                                                <p> blog example where code from my blogs will be put</p>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="#">
-                                                <p>{{blog.title}}</p>
-                                                <p>blog example where code from recent blogs will be put</p>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="#">
-                                                <p>{{blog.title}}</p>
-                                                <p> blog example where code from recent blogs will be put</p>
-                                            </a>
-                                        </div>
-                                    </div>
 
 
-                                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                            </div>
-                        </div>
-                        <footer class="container-fluid text-center">
-                            <p>ShapeShifters </p>
-                        </footer>
+<footer class="container-fluid text-center">
+    <p>ShapeShifters </p>
+</footer>
 
 </body>
