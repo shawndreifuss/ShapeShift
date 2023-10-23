@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Profile Page:</h3>
+
+    <form class="form new-project-form">
+      <div class="form-group">
+        <label for="project-name">project name:</label>
+        <input class="form-input" type="text" id="project-name" name="project-name" />
+      </div>
+      <div class="form-group">
+        <label for="project-funding">needed funding ($):</label>
+        <input class="form-input" type="number" id="project-funding" name="project-funding" />
+      </div>
+      <div class="form-group">
+        <label for="project-desc">description:</label>
+        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if projects.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Projects:</h3>
+    <!-- TODO: Loop of the projects array and display each project name along with a button to delete each project -->
+  </div>
+  {{/if}}
+</div>
+
+<script src="./js/profile.js"></script>
