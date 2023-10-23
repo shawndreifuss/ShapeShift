@@ -4,7 +4,7 @@
   }
   .row.content {height: 450px}
   
- .jumbotron {
+.jumbotron {
     background-image:url("../images/AdobeStock_486189863_Preview.jpeg");
     text-align: center;
  }
@@ -71,14 +71,9 @@ h5 {
     margin-bottom: 20px;
   }
 
-  .post img {
-    width: 100%;
-  }
 
   .post p {
     margin-top: 10px;
   }
 
-  .post .likes {
-    font-weight: bold;
-  }
+ 
