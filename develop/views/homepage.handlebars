@@ -1,4 +1,4 @@
- {{#if logged-in}}
+
         <div class="jumbotron">
             <h1>ShapeShift</h1>
         </div>
@@ -8,20 +8,20 @@
                     <div class="side">
                         <div>
                             <a href="#">
-                                <p>Recent Workout</p>
-                                <p> workout example where code from recent workouts will be put</p>
+                                <p>Top Workouts</p>
+                                <p> workout example where code from top workouts will be put</p>
                             </a>
                         </div>
                         <div>
                             <a href="#">
-                                <p>Recent Workout</p>
-                                <p> workout example where code from recent workouts will be put</p>
+                                <p>Top Workout</p>
+                                <p> workout example where code from top workouts will be put</p>
                             </a>
                         </div>
                         <div>
                             <a href="#">
-                                <p>Recent Workout</p>
-                                <p> workout example where code from recent workouts will be put</p>
+                                <p>Top Workout</p>
+                                <p> workout example where code from Top workouts will be put</p>
                             </a>
                         </div>
 
@@ -40,13 +40,13 @@
                             <h2>Recent Posts</h2>
 
                             <div class="post">
-                                <img src="../../public/images/photo-1534438327276-14e5300c3a48.avif" alt="Post Image">
-                                <p>This is the caption for the post.</p>
+                                
+                                <p>This is the caption for the blog.</p>
                             </div>
 
                             <div class="post">
-                                <img src="../../public/images/pexels-leon-ardho-1552252.jpg" alt="Post Image">
-                                <p>This is the caption for another post.</p>
+                                <h3>{{blog.title}}</h3>
+                                <p>{{blog.description}}</p>
                         
                             </div>
                         </div>
@@ -56,19 +56,19 @@
                                     <div class="side">
                                         <div>
                                             <a href="#">
-                                                <p>Recent Blog</p>
-                                                <p> blog example where code from recent blogs will be put</p>
+                                                <p>{{blog.title}}</p>
+                                                <p> blog example where code from my blogs will be put</p>
                                             </a>
                                         </div>
                                         <div>
                                             <a href="#">
-                                                <p>Recent Blog</p>
+                                                <p>{{blog.title}}</p>
                                                 <p>blog example where code from recent blogs will be put</p>
                                             </a>
                                         </div>
                                         <div>
                                             <a href="#">
-                                                <p>Recent Blog</p>
+                                                <p>{{blog.title}}</p>
                                                 <p> blog example where code from recent blogs will be put</p>
                                             </a>
                                         </div>
@@ -80,8 +80,7 @@
                             </div>
                         </div>
                         <footer class="container-fluid text-center">
-                            <p>ShapeShifters Inc.</p>
+                            <p>ShapeShifters </p>
                         </footer>
 
 </body>
-{{/if}}

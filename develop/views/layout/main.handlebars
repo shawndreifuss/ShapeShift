@@ -31,11 +31,19 @@
                     <li><a href="../profile.html">Profile</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../login.html"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                     {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}} 
+        <li><a href="../login.html"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                {{/if}}   
                 </ul>
             </div>
         </div>
     </nav>
     <div>
-       {{{body}}}
+        <a href="/homepage"></a>
+      {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </html>
