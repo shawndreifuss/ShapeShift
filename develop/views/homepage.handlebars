@@ -1,28 +1,18 @@
-<div class="jumbotron">
+<div class="jumbotron" id="hero">
     <h1>ShapeShift</h1>
 </div>
 <div class="container-fluid text-center">
     <div class="row content">
         <div class="col-sm-2 sidenav">
             <div class="side">
+                <h3>Try these Workouts!</h3>
+                {{#each workouts as |workout|}}
                 <div>
-                    <a href="/workout/{{workout[0].workout.id}}">
-                        <p> {{format_date workout[0].Workout_date}}</p>
-                        <p>{{workout[0].workout.details}}</p>
-                    </a>
+                        <h4> {{format_date workout.workout_date}}</h4>
+                        <p>{{workout.category}}</p>
+                        <p>{{workout.details}}</p>     
                 </div>
-                <div>
-                  <a href="/workout/{{workout.workout[1].id}}">
-                        <p> {{format_date workout[1].Workout_date}}</p>
-                        <p> {{workout[1].workout.details}}</p>
-                    </a>
-                </div>
-                <div>
-                 <a href="/workout/{{workout[2].workout.id}}">
-                        <p> {{format_date workout[2].Workout_date}}</p>
-                        <p> {{workout[2].workout.details}}</p>
-                    </a>
-                </div>
+              {{/each}}
 
             </div>
 
@@ -34,12 +24,16 @@
                     <h3>Have YOU been coding and havent left your chair all day?</h3>
                     <h3>Wanting to change your shape?</h3>
                     <h3>ShapeShift is for you!</h3>
-                    <button type="button" class="btn btn-default">Get Started</button>
+                    
 
                     <h2>Blogs</h2>
+                    {{#each blogs as |blog| }}
                     <div class="post">
-                        <h3>{{blog.title}}</h3>
+                        <h3>{{blog.user.name}}</h3>
+                          <h5>{{blog.title}}</h5>
                         <p>{{blog.description}}</p>
+                        {{/each}}
+
 
                     </div>
                 </div>

@@ -5,17 +5,18 @@
   .row.content {height: 450px}
   
  .jumbotron {
-    background-image:url("../views/images/AdobeStock_486189863_Preview.jpeg");
+    
+    text-align: center;
  }
  .side div {
     height: 125px
    
  }
- 
- 
- .side p {
-    margin-top: -10px;
+ #hero {
+  background-image:url("../images/AdobeStock_486189863_Preview.jpeg");
+
  }
+ 
 h5 {
     font-style: oblique;
 }
@@ -25,9 +26,7 @@ h5 {
     background-color: #f1f1f1;
     height: 100%;
 }
-.jumbotron {
-    text-align: center;
-}
+
 
   .btn-default {
       background: #000;
