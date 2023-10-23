@@ -103,6 +103,41 @@
                           <option>-Year-</option>
                       </select><br>
 
+                      <script>
+                        const monthDropdown = document.getElementById("b-month");
+                        const dayDropdown = document.getElementById("b-day");
+                        const yearDropdown = document.getElementById("b-year");
+                      
+                        // Function to populate the month dropdown
+                        for (let i = 1; i <= 12; i++) {
+                          const option = document.createElement("option");
+                          option.value = i;
+                          option.textContent = i;
+                          monthDropdown.appendChild(option);
+                        }
+                      
+                        // Function to populate the day dropdown
+                        for (let i = 1; i <= 31; i++) {
+                          const option = document.createElement("option");
+                          option.value = i;
+                          option.textContent = i;
+                          dayDropdown.appendChild(option);
+                        }
+                      
+                        // Function to populate the year dropdown
+                        const currentYear = new Date().getFullYear();
+                        for (let i = currentYear; i >= currentYear - 100; i--) {
+                          const option = document.createElement("option");
+                          option.value = i;
+                          option.textContent = i;
+                          yearDropdown.appendChild(option);
+                        }
+                      </script>
+                      
+
+
+                      
+                      
                       <label for="password1">Password: </label>
                       <input class="input-box" id="password1" type="password"><br>
                       <label for="password2">Confirmed Password: </label>
@@ -129,18 +164,7 @@
                               style="resize: vertical;"></textarea>
                       </div><br>
 
-                     <!-- <div id="url-box">
-                          <h4>Profile URL</h4>
-                          <div class="url-box_div">
-                              <p>You can choose a personal URL for your profile page:</p>
-                              <div class="profile-url">
-                                  <span class="input-box span">www.shapeshifters.com/</span>
-                                  <input class="input-box url-input" type="text" name="username" value="">
-                              </div>
-                          </div>
-                      </div> -->
-
-
+                     
               </div>
 
           </div>
@@ -213,8 +237,12 @@
       </div>
   </section>
 
+
+
+
+
   <footer>
-      <div class="footerv">
+      <div class="footeri">
 
       </div>
   </footer>
