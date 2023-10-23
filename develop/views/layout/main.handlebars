@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+<!--navbar for webpage -->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -31,8 +31,10 @@
                     <li><a href="../profile.html">Profile</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <!-- if logged in will take to homepage -->
                      {{#if logged_in}}
         <a href="/homepage">profile</a> |
+        <!-- creates logout button --> 
         <button class="no-button" id="logout">logout</button>
         {{else}} 
         <li><a href="../login.html"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
