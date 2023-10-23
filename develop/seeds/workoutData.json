@@ -1,0 +1,32 @@
+[
+    {   
+        "workout_date": "2023-10-25",
+        "category": "Running",
+        "reps": null,
+        "sets": null,
+        "weight": null,
+        "distance": "2 Miles",
+        "duration": "30 minutes",
+        "details": "Ran 2 Miles in a span of 30 minutes. 4mph pace. 15 minutes per mile"
+    },
+    {   
+        "workout_date": "2023-10-24",
+        "category": "Bicep Curls",
+        "reps": "20",
+        "sets": "3",
+        "weight": "20lbs",
+        "distance": null,
+        "duration": null,
+        "details": "20 repetitions of 20lb bicep curls for 3 sets."
+    },
+    {   
+        "workout_date": "2023-10-23",
+        "category": "Sit Ups",
+        "reps": 20,
+        "sets": 5,
+        "weight": null,
+        "distance": null,
+        "duration": null,
+        "details": "20 repetitions of sit ups for 5 sets"
+    }
+]
