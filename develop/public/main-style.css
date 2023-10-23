@@ -1,0 +1,88 @@
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  .row.content {height: 450px}
+  
+ .jumbotron {
+    background-image:url("../views/images/AdobeStock_486189863_Preview.jpeg");
+ }
+ .side div {
+    height: 125px
+   
+ }
+ 
+ 
+ .side p {
+    margin-top: -10px;
+ }
+h5 {
+    font-style: oblique;
+}
+
+  .sidenav {
+    padding-top: 60px;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+.jumbotron {
+    text-align: center;
+}
+
+  .btn-default {
+      background: #000;
+      color: #fff;
+   }
+  .btn-default:hover {
+      background: #fff;
+      color: #000;
+   }
+  footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+  }
+ 
+
+  @media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height:auto;} 
+  }
+
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .navigation {
+    display: flex;
+    gap: 20px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .post {
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .post img {
+    width: 100%;
+  }
+
+  .post p {
+    margin-top: 10px;
+  }
+
+  .post .likes {
+    font-weight: bold;
+  }
