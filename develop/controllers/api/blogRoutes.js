@@ -3,7 +3,7 @@ const { Blog } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Creating a new blog
-router.post('/', withAuth, async (req, res) => {
+router.post('/blogs', withAuth, async (req, res) => {
   try {
     const newBlog = await Blog.create({
     
@@ -19,7 +19,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 
-router.get('/', async (req, res) => {
+router.get('/blogs', async (req, res) => {
   try {
     const blogData = await Blog.findAll();
     res.status(200).json(blogData);
@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get a specific blog by ID
-router.get('/:id', async (req, res) => {
+router.get('blogs/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id);
     if (!blogData) {
@@ -43,7 +43,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update a blog by ID
-router.put('/:id', withAuth, async (req, res) => {
+router.put('blogs/:id', withAuth, async (req, res) => {
   try {
     const updatedBlog = await Blog.update(
       {
