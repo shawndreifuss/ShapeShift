@@ -2,7 +2,7 @@
     {   
         "workout_date": "2023-10-25",
         "category": "Running",
-        "reps": null,
+        "reps": 5,
         "sets": null,
         "weight": null,
         "distance": "2 Miles",

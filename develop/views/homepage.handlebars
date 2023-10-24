@@ -1,9 +1,9 @@
 <style>
   .hero {
-    background-image: url("../images/360_F_263042244_sZry3DZkkgoBfuSxR0ZN8DN9tiL6oSEW.jpg");
+    background-color: antiquewhite;
   height: 100%;
   background-position: center;
-  background-repeat: no-repeat;
+ 
   background-size: cover;
   }
     .navbar {
@@ -31,10 +31,12 @@ h5 {
 
   .sidenav {
     padding-top: 60px;
-    
+    margin-right: 60px;
     height: 100%;
 }
-
+.side {
+  height:100%;
+}
 
   .btn-default {
       background: #000;
@@ -91,30 +93,40 @@ h5 {
   .post p {
     margin-top: 10px;
   }
+  #underlined {
+    text-decoration: underline;
+  }
+  .background {
+    background-color: rgb(255, 255, 255);
+  }
+  .side a {
+    text-decoration:none;
+  }
 
  </style>
  <div class="hero">
 <div class="jumbotron" id="hero">
     <h1>ShapeShift</h1>
 </div>
-<div class="container-fluid text-center">
-    <div class="row content">
-        <div class="col-sm-2 sidenav">
-            <div class="side">
-                <h3>Try these Workouts!</h3>
+<div class="container-fluid text-center ">
+    <div class="row content ">
+        <div class="col-sm-2 sidenav ">
+            <div class="side ">
+                <h3 id="underlined">Try these Workouts!</h3>
                
                 {{#each workouts as |workout|}}
-                 <div class="workout">
+                <a href="/workout/{{workout.id}}">
                         <h4> {{format_date workout.workout_date}}</h4>
-                        <p>{{workout.category}}</p>
-                        <p>{{workout.details}}</p>     
-                        <p>_________________</p>
-                </div> 
-             
+                        <p>{{workout.category}}</p> 
+                        <p>Reps: {{workout.reps}}</p> 
+                        <p>Sets: {{workout.sets}}</p> 
+                        <p>Duration: {{workout.duration}}</p> 
+                        <p>Distance: {{workout.distance}}</p>
+                       <p>Details: {{workout.details}}</p> 
+                       <p>_____________________</p>
+                </a>
               {{/each}}
          </div>
-           
-
         </div>
         <div class="container-fluid text-center">
             <div class="row content">
@@ -125,11 +137,14 @@ h5 {
 
                     <h1>Blogs</h1>
                     {{#each blogs as |blog| }}
+                     <a href="/blogs/{{blog.id}}">
                     <div class="post">
-                        <h3>{{blog.user.name}}</h3>
-                          <h5>{{blog.title}}</h5>
-                        <p>{{blog.description}}</p>
+                        <h3>{{blog.author}}</h3>
+                        <h4>{{format_date blog.date}}</h4>
+                          <h4>{{blog.title}}</h4>
+                        <p>{{blog.content}}</p>
                        </div>
+                       </a>
                     {{/each}}
                     
                 </div>
