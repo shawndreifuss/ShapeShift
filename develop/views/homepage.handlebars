@@ -8,9 +8,26 @@
                 <h3>Try these Workouts!</h3>
                 {{#each workouts as |workout|}}
                 <div>
-                        <h4> {{format_date workout.workout_date}}</h4>
-                        <p>{{workout.category}}</p>
-                        <p>{{workout.details}}</p>     
+
+                    {{#if blogs.[0].user.workouts.length}}
+                    <a href="/workout/{{blogs.[0].user.workouts.[0].id}}">
+                        <p> {{format_date blogs.[0].user.workouts.[0].workout_date}}</p>
+                        <p>{{blogs.[0].user.workouts.[0].details}}</p>
+                    </a>
+                    {{/if}}
+                </div>
+                <div>
+                  <a href="/workout/{{blogs.[1].user.workouts.[0].id}}">
+                        <p> {{format_date blogs.[1].user.workouts.[0].workout_date}}</p>
+                        <p>{{blogs.[1].user.workouts.[0].details}}</p>
+                    </a>
+                </div>
+                <div>
+                  <a href="/workout/{{blogs.[2].user.workouts.[0].id}}">
+                        <p> {{format_date blogs.[2].user.workouts.[0].workout_date}}</p>
+                        <p>{{blogs.[2].user.workouts.[0].details}}</p>
+                    </a>
+
                 </div>
               {{/each}}
 
@@ -29,10 +46,9 @@
                     <h2>Blogs</h2>
                     {{#each blogs as |blog| }}
                     <div class="post">
-                        <h3>{{blog.user.name}}</h3>
-                          <h5>{{blog.title}}</h5>
-                        <p>{{blog.description}}</p>
-                        {{/each}}
+
+                        <h3>{{blogs.[0].title}}</h3>
+                        <p>{{blogs.[0].description}}</p>
 
 
                     </div>

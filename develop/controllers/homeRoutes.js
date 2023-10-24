@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
             blogs, 
             logged_in: req.session.logged_in 
           });
-        // res.json(workouts)
+
     } catch (err) {
       res.status(500).json(err);
     }
