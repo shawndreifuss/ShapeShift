@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>ShapeShift</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShapeShift</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<!--navbar for webpage -->
+    <!--navbar for webpage -->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -26,28 +26,34 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
-                    <li><a href="/workouts">Workouts</a></li>
-                    <li><a href="/blogs">Blog</a></li>
-                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="../workout.html">Workouts</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="../profile.html">Profile</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- if logged in will take to homepage -->
-
-                 
- {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    
-      {{else}}  <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-              {{/if}}  
+                    {{#if loggedIn}}
+                    <!-- User is logged in, so show Log Out button -->
+                    <button id="logout" class="btn btn-default navbar-btn">
+                        <span class="glyphicon glyphicon-log-out"></span> Log Out
+                    </button>
+                    {{else}}
+                    <!-- User is not logged in, show the Sign Up and Login links -->
+                    <li><a href="/signup"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    {{/if}}
                 </ul>
             </div>
         </div>
     </nav>
+
     <div>
-       {{{body}}}  
-     {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}} 
+        {{{body}}}
+    </div>
+
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+
+</body>
+
 </html>

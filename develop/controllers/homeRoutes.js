@@ -26,7 +26,7 @@ router.get('/', withAuth,  async (req, res) => {
             user: req.session.name,
             workouts,
             blogs, 
-            logged_in: req.session.logged_in 
+            loggedIn: req.session.logged_in 
           });
       //res.json({user, workouts, blogs})
 
@@ -54,5 +54,13 @@ router.get('/', withAuth,  async (req, res) => {
   
     res.render('login');
   });
+
+
+router.get('/blogs', (req, res) => {
+  res.render('blog')
+})
+
+
+
 
   module.exports = router
