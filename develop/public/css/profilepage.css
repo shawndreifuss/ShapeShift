@@ -321,3 +321,12 @@ select[name="birth-data"]{
     text-decoration: underline;
     
 }
+
+.gender-button {
+    display: flex;
+    align-items: center;
+};
+
+.radio-button {
+    margin-right:20px
+};
