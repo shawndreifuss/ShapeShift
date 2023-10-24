@@ -1,44 +1,24 @@
-const newFormHandler = async (event) => {
-    event.preventDefault();
-  
-    const name = document.querySelector('#project-name').value.trim();
-    const needed_funding = document.querySelector('#project-funding').value.trim();
-    const description = document.querySelector('#project-desc').value.trim();
-  
-    if (name && needed_funding && description) {
-      //TODO: Complete the fetch POST request to create a project
-      fetch('url', {
-        Method: 'POST',
-        Headers: {
-          Accept: 'application.json',
-          'Content-Type': 'application/json'
-        },
-        Body: body,
-        Cache: 'default'
-      })
-    }
-  };
-  
-  const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
-  
-      const response = await fetch(`/api/projects/${id}`, {
-        method: 'DELETE',
-      });
-  
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        alert('Failed to delete project');
+  // code below is for the updated time zones// 
+    function populateTimezones() {
+      const timezonesSelect = document.getElementById("timezones");
+      const timezones = Intl.supportedValuesOf("timeZone");
+
+      for (const timezone of timezones ) {
+        const option = document.createElement("option");
+        option.value = timezone;
+        option.textContent = timezone;
+        timezonesSelect.appendChild(option);
       }
     }
-  };
-  
-  document
-    .querySelector('.new-project-form')
-    .addEventListener('submit', newFormHandler);
-  
-  document
-    .querySelector('.project-list')
-    .addEventListener('click', delButtonHandler);
+
+    window.onload = function() {
+      populateTimezones();
+    };
+
+    document.getElementById("timezones").addEventListener("change", function() {
+      const selectedTimezone = this.value;
+      // Perform actions based on the selected timezone, e.g., update the page with timezones as the user changes their time zone.// 
+      console.log("Selected Timezone: " + selectedTimezone);
+    });
+    
+    
