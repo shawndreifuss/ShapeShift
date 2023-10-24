@@ -54,4 +54,12 @@ router.get('/', withAuth, async (req, res) => {
   router.get('/profilepage' , (req,res) => {
     res.render('profilepage')
   })
+
+router.get('/blogs', (req, res) => {
+  res.render('blog')
+})
+
+
+
+
   module.exports = router

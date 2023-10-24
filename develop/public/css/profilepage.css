@@ -24,10 +24,13 @@ body {
 
 /* Style the input field */
 .ui-widget input {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 400px; 
     padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 5px; 
+    border-radius: 43px; 
     float: center;
   }
   

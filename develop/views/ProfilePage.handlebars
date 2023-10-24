@@ -178,15 +178,30 @@ button {
 }
 
 .profile-pic-button {
-    height: 35px;
-    width: 90%;
+    height: 39px;
+    width: 95%;
     margin: auto;
-    margin-top: -15px;
+    margin-top: 7px;
 }
 
 button:hover {
     background: #30b065;
     border-color: #207744;
+}
+
+#profile{
+    display: grid;
+    text-align: center;
+    min-height: 10px;
+    padding: 90px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    height: 320px;
+    margin-top: -8px;
+    /* border: 1px solid red; */
+     float: right; */
 }
 
 #profile p {
@@ -200,8 +215,8 @@ button:hover {
 }
 
 .save {
-    padding: 8px 10px;
-    margin-left: 30px;
+    padding: 5px 10px;
+    margin-left: 10px;
 }
 
 .save-button {
@@ -210,7 +225,7 @@ button:hover {
     margin-top: 20px;
     border: none;
     border-top: 1px solid rgb(208, 200, 200);
-    margin-left: 50px;
+    margin-left: 0px;
 }
 
 /* Styling for labels, input boxes, and select elements */
@@ -247,7 +262,7 @@ label {
 
 <div class="upper-body">
     <div class="upper-body-data focus" id="general" tabindex="1">General</div>
-    <div class="upper-body-data" id="Body_measurements" tabindex="1">Body measurements</div>
+    <div class="upper-body-data" id="Body_measurements" tabindex="1">Workouts Saved</div>
     <div class="upper-body-data" id="privacy" tabindex="1">Privacy</div>
 </div>
 
@@ -270,7 +285,7 @@ label {
     </div>
 </div>
 
-
+<div class="search-bar">
 <script>
   $( function() {
     var availableTags = [
@@ -302,8 +317,20 @@ label {
     });
   } );
   </script>
+  </div>
 
+<div id="profile">
+          <div class="profile-image">
+              <img src="../public/images/04012019-25.jpg">
+          </div>
 
+          <button class="profile-pic-button">Change profile picture</button>
+          <h4>0</h4>
+          <p>Workouts added</p>
+          <h4>0 lbs</h4>
+          <p>Lifted</p>
+
+      </div>
  
 <div class="ui-widget">
   <label for="tags">Tags: </label>
@@ -327,7 +354,6 @@ label {
     Female
 </label>
 </div>
-
 
 <!-- Below this is the code for the dd/mm/yyyy-->
 <label class="b-day" for="b-day b-month">Birth date:</label>
@@ -372,6 +398,8 @@ label {
                         }
                       </script>
 <!-- THE CODE ABOVE IS FOR THE MONTH DAY AND YEAR DROP DOWN -->
+
+ 
 
 <label for="password1">Password: </label>
 <input class="input-box" id="password1" type="password"><br>
@@ -418,6 +446,13 @@ label {
     <input class="input-box BM-input BM-height" type="number" id="height2"><span class="input-box units">cm</span>
 </div>
 <br>
+
+<!-- Code below is for the save button -->
+ <div class="save-button ">
+              <button type="submit" class="save">Save</button>
+          </div>
+      </div>
+
 
 <script src="../models/profile.js"
 <div class="not-display" id="privacy-data></div>
