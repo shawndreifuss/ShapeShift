@@ -1,3 +1,11 @@
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
+class profile extends Model {}
+  
+  
+  
+  
   // code below is for the updated time zones// 
     function populateTimezones() {
       const timezonesSelect = document.getElementById("timezones");
