@@ -1,3 +1,83 @@
+<style>
+    .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  .row.content {height: 450px}
+  
+.jumbotron {
+    background-image:url("../images/AdobeStock_486189863_Preview.jpeg");
+    text-align: center;
+ }
+ .side div {
+    height: 125px
+   
+ }
+ 
+ 
+h5 {
+    font-style: oblique;
+}
+
+  .sidenav {
+    padding-top: 60px;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+
+  .btn-default {
+      background: #000;
+      color: #fff;
+   }
+  .btn-default:hover {
+      background: #fff;
+      color: #000;
+   }
+  footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+  }
+ 
+
+  @media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height:auto;} 
+  }
+
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .navigation {
+    display: flex;
+    gap: 20px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .post {
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+
+  .post p {
+    margin-top: 10px;
+  }
+
+ </style>
 <div class="jumbotron" id="hero">
     <h1>ShapeShift</h1>
 </div>
@@ -8,26 +88,9 @@
                 <h3>Try these Workouts!</h3>
                 {{#each workouts as |workout|}}
                 <div>
-
-                    {{#if blogs.[0].user.workouts.length}}
-                    <a href="/workout/{{blogs.[0].user.workouts.[0].id}}">
-                        <p> {{format_date blogs.[0].user.workouts.[0].workout_date}}</p>
-                        <p>{{blogs.[0].user.workouts.[0].details}}</p>
-                    </a>
-                    {{/if}}
-                </div>
-                <div>
-                  <a href="/workout/{{blogs.[1].user.workouts.[0].id}}">
-                        <p> {{format_date blogs.[1].user.workouts.[0].workout_date}}</p>
-                        <p>{{blogs.[1].user.workouts.[0].details}}</p>
-                    </a>
-                </div>
-                <div>
-                  <a href="/workout/{{blogs.[2].user.workouts.[0].id}}">
-                        <p> {{format_date blogs.[2].user.workouts.[0].workout_date}}</p>
-                        <p>{{blogs.[2].user.workouts.[0].details}}</p>
-                    </a>
-
+                        <h4> {{format_date workout.workout_date}}</h4>
+                        <p>{{workout.category}}</p>
+                        <p>{{workout.details}}</p>     
                 </div>
               {{/each}}
 
@@ -38,17 +101,17 @@
             <div class="row content">
                 <div class="col-sm-8 text-center">
                     <h1>ShapeShift</h1>
-                    <h3>Have YOU been coding and havent left your chair all day?</h3>
-                    <h3>Wanting to change your shape?</h3>
-                    <h3>ShapeShift is for you!</h3>
+                    <h3>Hey Users Name</h3>
+                    
                     
 
                     <h2>Blogs</h2>
                     {{#each blogs as |blog| }}
                     <div class="post">
-
-                        <h3>{{blogs.[0].title}}</h3>
-                        <p>{{blogs.[0].description}}</p>
+                        <h3>{{blog.user.name}}</h3>
+                          <h5>{{blog.title}}</h5>
+                        <p>{{blog.description}}</p>
+                        {{/each}}
 
 
                     </div>

@@ -39,31 +39,3 @@ input {
   cursor: pointer;
 }
 
-.social-login {
-  margin: 20px 0;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-}
-
-.social-icons a {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  margin: 0 5px;
-  background-size: 20px 20px;
-}
-
-.forgot-password, .sign-up-link {
-  color: #3498db;
-  text-decoration: none;
-}
-
-.forgot-password:hover, .sign-up-link:hover {
-  text-decoration: underline;
-}
