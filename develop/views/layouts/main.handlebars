@@ -31,22 +31,29 @@
                     <li><a href="../profile.html">Profile</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/signup"><span class="glyphicon glyphicon-log-in"></span>Sign Up</a></li>
                     {{#if loggedIn}}
-                        <!-- User is logged in, so redirect to homepage -->
-                        <li><a href="/homepage"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                    <!-- User is logged in, so show Log Out button -->
+                    <button id="logout" class="btn btn-default navbar-btn">
+                        <span class="glyphicon glyphicon-log-out"></span> Log Out
+                    </button>
                     {{else}}
-                        <!-- User is not logged in, show the Login link -->
-                        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                    <!-- User is not logged in, show the Sign Up and Login links -->
+                    <li><a href="/signup"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     {{/if}}
                 </ul>
             </div>
         </div>
     </nav>
-    
+
     <div>
-       {{{body}}}  
-     {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}} 
+        {{{body}}}
+    </div>
+
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+
+</body>
+
 </html>
