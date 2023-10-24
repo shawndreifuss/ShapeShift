@@ -1,4 +1,7 @@
 <style>
+
+			
+
   .hero {
     background-color: antiquewhite;
   height: 100%;
@@ -99,9 +102,10 @@ h5 {
   .background {
     background-color: rgb(255, 255, 255);
   }
-  .side a {
-    text-decoration:none;
-  }
+ a {
+  text-decoration: none;
+  color: black;
+ }
 
  </style>
  <div class="hero">
@@ -116,6 +120,7 @@ h5 {
                
                 {{#each workouts as |workout|}}
                 <a href="/workout/{{workout.id}}">
+               
                         <h4> {{format_date workout.workout_date}}</h4>
                         <p>{{workout.category}}</p> 
                         <p>Reps: {{workout.reps}}</p> 
@@ -124,6 +129,7 @@ h5 {
                         <p>Distance: {{workout.distance}}</p>
                        <p>Details: {{workout.details}}</p> 
                        <p>_____________________</p>
+                    
                 </a>
               {{/each}}
          </div>
@@ -132,10 +138,9 @@ h5 {
             <div class="row content">
                 <div class="col-sm-8 text-center">
                     <h1>Welcome {{user}}</h1>
-                    <h1></h1>
                     
+                    <h2>Blogs</h2>
 
-                    <h1>Blogs</h1>
                     {{#each blogs as |blog| }}
                      <a href="/blogs/{{blog.id}}">
                     <div class="post">
@@ -158,5 +163,4 @@ h5 {
 <footer class="container-fluid text-center">
     <p>ShapeShifters </p>
 </footer>
-
 </body>
