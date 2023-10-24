@@ -37,7 +37,6 @@ router.get('/',  async (req, res) => {
       res.redirect('/');
       return;
     }
-  
     res.render('signup');
   });
 
@@ -49,7 +48,7 @@ router.get('/',  async (req, res) => {
       return;
     }
   
-    res.render('homepage');
+    res.render('login');
   });
 
   module.exports = router
