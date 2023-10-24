@@ -22,6 +22,10 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.background {
+  background-image:url("../public/images/AdobeStock_486189863_Preview.jpeg");
+}
+
 /* Style the jQuery UI widget and input container */
 .ui-widget {
     text-align: center;
@@ -97,7 +101,7 @@ body {
     border-bottom: none;
 }
 
-.upper-body > .focus {
+.upper-body  .focus {
     border: 1px solid #ccc;
     background-color: white;
     border-bottom: none;
@@ -136,7 +140,6 @@ section {
     margin-top: 50px;
 }
 
-/* Styling for general-container, Body_measurements-container, and privacy-data */
 #general-container,
 #Body_measurements-container,
 #privacy-data {
@@ -145,8 +148,8 @@ section {
     margin-left: 30px;
 }
 
-#general-name > h2,
-#Body_measurements-container > h2,
+#general-name  h2,
+#Body_measurements-container  h2,
 #privacy-data h2 {
     margin-top: 30px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -155,7 +158,7 @@ section {
     margin-left: 10px;
 }
 
-#general-name > p {
+#general-name  p {
     color: rgb(42, 100, 150);
     font-size: 14px;
 }
@@ -215,7 +218,9 @@ label {
     display: inline-block;
     width: 210px;
     text-align: right;
- </style>  
+}
+ </style> 
+
 <!--  ABOVE THIS IS THE CSS CODE -->
 </head>
 <body>
@@ -223,9 +228,9 @@ label {
     {{ section}}
     {{ footer}}
 
-<header id="container">
-
-</header>
+<div class = "background" id="container">
+   <h1></h1>
+</div>
 
 
 <section>
@@ -266,13 +271,52 @@ label {
 </div>
 
 
+<script>
+  $( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+
+
+ 
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
+
 <label class="email" for="email-id">Email: </label>
 <input class="input-box" id="email-id" type="email"><br>
 
 <label for="name1">Your name:</label>
 <input id="name1" class="input-box" type="text"><br>
 
-<div class="gender buttons">
+<div class="radio buttons">
 <label id="gender" for="gender-option" class="control-label">Gender:</label>
 <label id="gender-option" for="gender_male" class="radio-button">
     <input id="gender_male" type="radio" name="gender" value="male">
@@ -284,6 +328,8 @@ label {
 </label>
 </div>
 
+
+<!-- Below this is the code for the dd/mm/yyyy-->
 <label class="b-day" for="b-day b-month">Birth date:</label>
 <select class="input-box" name="birth-data" id="b-month" class="birth-data">
     <option>-Month-</option>
@@ -293,8 +339,39 @@ label {
 </select>
 <select class="input-box" name="birth-data" id="b-year" class="birth-data">
     <option>-Year-</option>
-</select><br>
+</select><br> 
 
+<script>
+                        const monthDropdown = document.getElementById("b-month");
+                        const dayDropdown = document.getElementById("b-day");
+                        const yearDropdown = document.getElementById("b-year");
+                      
+                        // Function to populate the month dropdown
+                        for (let i = 1; i <= 12; i++) {
+                          const option = document.createElement("option");
+                          option.value = i;
+                          option.textContent = i;
+                          monthDropdown.appendChild(option);
+                        }
+                      
+                        // Function to populate the day dropdown
+                        for (let i = 1; i <= 31; i++) {
+                          const option = document.createElement("option");
+                          option.value = i;
+                          option.textContent = i;
+                          dayDropdown.appendChild(option);
+                        }
+                      
+                        // Function to populate the year dropdown
+                        const currentYear = new Date().getFullYear();
+                        for (let i = currentYear; i >= currentYear - 100; i--) {
+                          const option = document.createElement("option");
+                          option.value = i;
+                          option.textContent = i;
+                          yearDropdown.appendChild(option);
+                        }
+                      </script>
+<!-- THE CODE ABOVE IS FOR THE MONTH DAY AND YEAR DROP DOWN -->
 
 <label for="password1">Password: </label>
 <input class="input-box" id="password1" type="password"><br>

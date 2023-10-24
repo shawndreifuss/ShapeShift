@@ -47,8 +47,9 @@ body {
     color: #333;
   }
   
- 
-  
+  .radio-button {
+    text-align: right;
+  }
 
 .upper-body {
     display: flex;
