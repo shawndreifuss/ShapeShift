@@ -51,4 +51,12 @@ router.get('/', withAuth, async (req, res) => {
     res.render('login');
   });
 
+
+router.get('/blogs', (req, res) => {
+  res.render('blog')
+})
+
+
+
+
   module.exports = router
