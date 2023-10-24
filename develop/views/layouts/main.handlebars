@@ -32,16 +32,22 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- if logged in will take to homepage -->
-                    
 
-      
-        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-                
+                 
+ {{#if logged_in}}
+    <nav>
+      <button class="btn" id="logout">logout</button>
+    </nav>
+    
+      {{else}}  <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+              {{/if}}  
                 </ul>
             </div>
         </div>
     </nav>
     <div>
        {{{body}}}  
-      
+     {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}} 
 </html>
