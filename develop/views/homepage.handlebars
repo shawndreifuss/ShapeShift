@@ -1,69 +1,69 @@
 <style>
-
-			
-
   .hero {
     background-color: antiquewhite;
-  height: 100%;
-  background-position: center;
- 
-  background-size: cover;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
   }
-    .navbar {
+
+  .navbar {
     margin-bottom: 0;
     border-radius: 0;
   }
-  .row.content {height: 450px}
-  
-.jumbotron {
-    background-image:url("../images/AdobeStock_486189863_Preview.jpeg");
+
+  .row.content {
+    height: 450px
+  }
+
+  .jumbotron {
+    background-image: url("../images/AdobeStock_486189863_Preview.jpeg");
     text-align: center;
- }
- .side div {
+  }
+
+  .side div {
     height: 125px;
-    
-   
- }
- h1 {
-  
- }
- 
-h5 {
+  }
+
+  h5 {
     font-style: oblique;
-}
+  }
 
   .sidenav {
     padding-top: 60px;
     margin-right: 60px;
     height: 100%;
-}
-.side {
-  height:100%;
-}
+  }
+
+  .side {
+    height: 100%;
+  }
 
   .btn-default {
-      background: #000;
-      color: #fff;
-   }
+    background: #000;
+    color: #fff;
+  }
+
   .btn-default:hover {
-      background: #fff;
-      color: #000;
-   }
+    background: #fff;
+    color: #000;
+  }
+
   footer {
     background-color: #555;
     color: white;
     padding: 15px;
   }
- 
 
   @media screen and (max-width: 767px) {
     .sidenav {
       height: auto;
       padding: 15px;
     }
-    .row.content {height:auto;} 
-  }
 
+    .row.content {
+      height: auto;
+    }
+  }
 
   .logo {
     font-size: 1.5rem;
@@ -85,7 +85,7 @@ h5 {
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
-     background-color: #fff;
+    background-color: #fff;
   }
 
   .workout {
@@ -93,74 +93,109 @@ h5 {
     margin-top: 40px;
     margin-bottom: 40px;
   }
+
   .post p {
     margin-top: 10px;
   }
+
   #underlined {
     text-decoration: underline;
   }
+
   .background {
     background-color: rgb(255, 255, 255);
   }
- a {
-  text-decoration: none;
-  color: black;
- }
 
- </style>
- <div class="hero">
-<div class="jumbotron" id="hero">
+  .side a {
+    text-decoration: none;
+  }
+</style>
+<div class="hero">
+  <div class="jumbotron" id="hero">
     <h1>ShapeShift</h1>
-</div>
-<div class="container-fluid text-center ">
+  </div>
+  <div class="container-fluid text-center ">
     <div class="row content ">
-        <div class="col-sm-2 sidenav ">
-            <div class="side ">
-                <h3 id="underlined">Try these Workouts!</h3>
-               
-                {{#each workouts as |workout|}}
-                <a href="/workout/{{workout.id}}">
-               
-                        <h4> {{format_date workout.workout_date}}</h4>
-                        <p>{{workout.category}}</p> 
-                        <p>Reps: {{workout.reps}}</p> 
-                        <p>Sets: {{workout.sets}}</p> 
-                        <p>Duration: {{workout.duration}}</p> 
-                        <p>Distance: {{workout.distance}}</p>
-                       <p>Details: {{workout.details}}</p> 
-                       <p>_____________________</p>
-                    
-                </a>
-              {{/each}}
-         </div>
+      <div class="col-sm-2 sidenav ">
+        <div class="side ">
+          <h3 id="underlined">Try these Workouts!</h3>
+          {{#each workouts as |workout|}}
+          <a href="/workout/{{workout.id}}">
+            <h4> {{format_date workout.workout_date}}</h4>
+            <p>{{workout.category}}</p>
+            <p>Reps: {{workout.reps}}</p>
+            <p>Sets: {{workout.sets}}</p>
+            <p>Duration: {{workout.duration}}</p>
+            <p>Distance: {{workout.distance}}</p>
+            <p>Details: {{workout.details}}</p>
+            <p>_____________________</p>
+          </a>
+          {{/each}}
         </div>
-        <div class="container-fluid text-center">
-            <div class="row content">
-                <div class="col-sm-8 text-center">
-                    <h1>Welcome {{user}}</h1>
-                    
-                    <h2>Blogs</h2>
-
-                    {{#each blogs as |blog| }}
-                     <a href="/blogs/{{blog.id}}">
-                    <div class="post">
-                        <h3>{{blog.author}}</h3>
-                        <h4>{{format_date blog.date}}</h4>
-                          <h4>{{blog.title}}</h4>
-                        <p>{{blog.content}}</p>
-                       </div>
-                       </a>
-                    {{/each}}
-                    
-                </div>
-
-
-            </div>
+      </div>
+      <div class="container-fluid text-center">
+        <div class="row content">
+          <div class="col-sm-8 text-center">
+            <h1>Welcome {{user}}</h1>
+            <h1></h1>
+            <h1>Blogs <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                data-target="#ModalLoginForm">+</button></h1>
+            {{#each blogs as |blog| }}
+            <a href="/blogs/{{blog.id}}">
+              <div class="post">
+                <h3>{{blog.author}}</h3>
+                <h4>{{format_date blog.date}}</h4>
+                <h4>{{blog.title}}</h4>
+                <p>{{blog.content}}</p>
+              </div>
+            </a>
+            {{/each}}
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </div>
 <footer class="container-fluid text-center">
-    <p>ShapeShifters </p>
+  <p>ShapeShifters </p>
 </footer>
 </body>
+
+<!-- Modal HTML Markup -->
+<div id="ModalLoginForm" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-body">
+          <h1>Add Blog</h1>
+          <form role="form" method="POST" action="">
+            <input type="hidden" name="_token" value="">
+            <div class="form-group">
+              <label class="control-label">Author: </label>
+              <div>
+                <input type="text" class="form-control input-lg" name="name" value="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Title: </label>
+              <div>
+                <input type="text" class="form-control input-lg" name="email" value="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Content</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <div>
+                <button type="submit" class="btn btn-success">
+                  POST
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/login.js">
