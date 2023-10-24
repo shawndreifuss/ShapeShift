@@ -10,5 +10,18 @@
     {   "create_date": "2023-10-25",
         "title": "10/25 Workout",
         "description": "Need to work on my cardio more"
+    },
+    {   "create_date": "2023-10-23",
+        "title": "10/23 Workout",
+        "description": "Feel myself getting stronger, sets are getting easier"
+    },
+    {   "create_date": "2023-10-24",
+        "title": "10/24 Workout",
+        "description": "Hard workout but I pushed through and completed all sets"
+    },
+    {   "create_date": "2023-10-25",
+        "title": "10/25 Workout",
+        "description": "Need to work on my cardio more"
     }
+    
 ]
