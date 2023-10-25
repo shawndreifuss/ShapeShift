@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <link src="../public/css/profilepage.css">
+    <link src="./css/profilepage.css">
 
     <style> 
 * {
@@ -115,6 +115,55 @@ body {
     border-bottom: none;
     color: rgb(85, 85, 85);
 }
+
+.input-box{
+    padding: 5px;
+    width: 50%;
+    color: #555;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    
+}
+
+.input-box:focus{
+    outline:none;
+}
+select[name="birth-data"]{
+    width: 10%;
+}
+
+.form-group div #gender-option{
+    width:8%;
+}
+#gender-option{
+    display: inline-block;
+    width: 600px; 
+    text-align:left;
+    margin-bottom: -50px;
+}
+#gender_female{
+    margin-left: 212px;
+}
+
+
+#email-id{
+    display: inline-block;
+    border: none;
+}
+.BM-input{
+    width: 25%;
+    border-bottom-right-radius:0px;
+    border-top-right-radius: 0px;
+    border-right: none;
+}
+.BM-height{
+    width: 8%;
+}
+
+
 
 /* Styling for the section and profile elements */
 section {
@@ -260,12 +309,14 @@ label {
     {{ privacyData}}
 </div>
 
+
 <div class="upper-body">
-    <div class="upper-body-data focus" id="general" tabindex="1">General</div>
-    <div class="upper-body-data" id="Body_measurements" tabindex="1">Workouts Saved</div>
-    <div class="upper-body-data" id="privacy" tabindex="1">Privacy</div>
+    <div class="upper-body-data focus" id="general" tabindex="1">Profile</div>
+    <div class="upper-body-data" id="Body_measurements" tabindex="1">Body Measurements</div>
 </div>
 
+
+<div class="tab-content" id="general-content">
 <div id="general-container">
     <div id="general-name">
         <h2>Profile</h2>
@@ -285,6 +336,7 @@ label {
     </div>
 </div>
 
+<!-- might just put this search feature  in the homepage -->
 <div class="search-bar">
 <script>
   $( function() {
@@ -318,6 +370,7 @@ label {
   } );
   </script>
   </div>
+  
 
 <div id="profile">
           <div class="profile-image">
@@ -420,12 +473,12 @@ label {
 
 <div class="form-group">
     <label for="user-description" class="col-sm-3 control-label">Your description for profile page:</label>
-    <textarea id="user-description" name="user-description" class="input-box" rows="2" style="resize: vertical;"></textarea>
+    <textarea id="user-description" name="user-description" class="input-box" rows="2" style="resize: both;"></textarea>
 </div>
 <br>
 
-
-<div class="not-display" id="Body_measurements-container">
+<!--  <div class="not-display" id="Body_measurements-container"> -->
+<div class="tab-content" id="Body_measurements-content"></div>
     <h2>Body measurements</h2>
     {{ heightInput}}
     <label for="Waist">Waist:</label>
@@ -438,7 +491,7 @@ label {
     <input class="input-box BM-input" type="number" id="Neck"><span class="input-box units">cm</span>
     <br>
 </div>
-
+</div>
 
 <div class="height-input">
     <label for="height1 height2">Height:</label>
@@ -451,12 +504,9 @@ label {
  <div class="save-button ">
               <button type="submit" class="save">Save</button>
           </div>
-      </div>
+</div>    
 
-
-<script src="../models/profile.js"
-<div class="not-display" id="privacy-data></div>
-
+<script src="./js/profile.js"></script>
 
 </body>
 </html>
