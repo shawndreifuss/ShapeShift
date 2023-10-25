@@ -1,0 +1,164 @@
+<style>
+
+body {
+    font-family: inherit, sans-serif;
+    background-color: #FAF3E0; 
+    color: #333; 
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ffffff; 
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.blog-post {
+    background-color: #FFF; 
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.blog-post h2 {
+    margin-top: 0;
+    color: #555; 
+}
+
+.date, .author {
+    color: #888; 
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+#submit-blog-post {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 60%; /* Set width to 60% of the container */
+    margin-left: auto; /* Center the form horizontally */
+    margin-right: auto; /* Center the form horizontally */
+}
+
+#submit-blog-post h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #333;
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: #FFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+</style>
+
+<body>
+    <header>
+        <h1 id="header">Workout Posts</h1>
+    </header>
+
+<main>
+    <!-- Blog post submission form -->
+    <section id="submit-blog-post">
+        <h2>Submit Your Workout</h2>
+            <div class="form-group">
+                <label for="category">Type of Workout:</label>
+                <input type="text" id="category" name="category" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>        
+            <div class="form-group">
+                <label for="repst">Reps:</label>
+                <textarea id="reps" name="content" rows="1" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="sets">Sets:</label>
+                <textarea id="sets" name="content" rows="1" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="distance">Distance:</label>
+                <textarea id="distance" name="content" rows="1" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration:</label>
+                <textarea id="duration" name="content" rows="1" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="details">Details:</label>
+                <textarea id="details" name="content" rows="5" required></textarea>
+            </div>
+            
+            <button id="submitBtn" type="submit">Submit Post</button>
+        </form>
+    </section>
+
+<section id="example-blog-posts">
+    <h2>Blog Posts</h2>
+
+    {{#each workouts as |workout|}}
+    <section class="blog-post">
+        <a href="/workout/{{workout.id}}"></a>
+        <h2>Workout Type:{{workout.category}}</h2>
+        <p class="date">Date:{{format_date workout.workout_date}}</p>
+        <p class ="reps">Reps: {{workout.reps}}</p>
+        <p class = "sets">Sets: {{workout.sets}}</p>
+        <p class = "duration">Duration: {{workout.duration}}</p>
+        <p class ="distance">Distance: {{workout.distance}}</p>
+        <p class ="details">Details: {{workout.details}}</p>
+        <p class="author">By {{workout.user.name}}</p>
+    </section>
+    {{/each}}
+
+</section>
+
+
+
+</main>
+    <script src="js/blog.js"></script>
+</body>

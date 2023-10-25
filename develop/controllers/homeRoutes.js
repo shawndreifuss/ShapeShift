@@ -86,4 +86,30 @@ router.get('/', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+router.get('/workouts', async (req, res) => {
+    try {
+        const workoutData = await Workout.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                    order:[['date', 'DEC']],
+                }
+            ]
+        });
+
+        // Serialize data so the template can read it
+        const workouts = workoutData.map((workout) => workout.get({ plain: true }));
+        res.render('workout', { 
+            workouts, 
+            loggedIn: req.session.logged_in 
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
   module.exports = router
