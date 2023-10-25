@@ -52,6 +52,4 @@
 
   // this code below is for saving the items inputted to the page
 
-  // JavaScript code to save user input to local storage when using the class "save"
-
-// Function to save user input to local storage
+  
