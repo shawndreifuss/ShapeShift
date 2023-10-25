@@ -29,7 +29,7 @@ router.post('/', withAuth, async (req, res) => {
   });
   
   
-  // Get a specific profile by ID
+  // Get a specific profile by email
   router.get('/:email', async (req, res) => {
     try {
       const profileData = await profile.findByPk(req.params.id);

@@ -49,3 +49,59 @@
     });
   });
   
+
+  // this code below is for saving the items inputted to the page
+
+  // JavaScript code to save user input to local storage when using the class "save"
+
+// Get the Save button element by its class
+const saveButtons = document.getElementsByClassName('save');
+
+// Loop through all elements with the class "save"
+for (const saveButton of saveButtons) {
+  // Add a click event listener to each Save button
+  saveButton.addEventListener('click', function() {
+    // Get user input from the input field(s) you want to save
+    // Adjust this part based on your specific input elements
+    const userName = document.getElementById('name1').value;
+    // ...
+
+    // Check if user input is not empty and save it to local storage
+    if (userName.trim() !== '') {
+      localStorage.setItem('userName', userName);
+      // ...
+
+      alert('Data saved successfully.');
+    } else {
+      alert('Please enter a name before saving.');
+    }
+  });
+}
+
+// Check if data exists in local storage when the page loads
+window.addEventListener('load', function() {
+  const savedUserName = localStorage.getItem('userName');
+  // ...
+  // Populate input fields or elements with the saved data
+  // ...
+});
+
+// JavaScript code to save user input to local storage when using the class "save"
+
+// Function to save user input to local storage
+function saveUserData() {
+  // Get user input from the input field(s) you want to save
+  // Adjust this part based on your specific input elements
+  const userName = document.getElementById('name1').value;
+  // ...
+
+  // Check if user input is not empty and save it to local storage
+  if (userName.trim() !== '') {
+    localStorage.setItem('userName', userName);
+    // ...
+
+    alert('Data saved successfully.');
+  } else {
+    alert('Please enter a name before saving.');
+  }
+}
