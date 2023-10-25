@@ -5,34 +5,28 @@ class profile extends Model {}
   
 profile.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
+    email: {
+      type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
     },
-    Email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    YourName: {
+    yourName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Password:{
+    password:{
       type: DataTypes.STRING,
       allowNull: false,
     }   ,   
     confirmPassword: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     description: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       references: {
         model: 'user',
-        key: 'id',
+        key: 'email',
       },
     },
   },
@@ -45,7 +39,7 @@ profile.init(
   }
 );
 
-module.exports = Blog;
+module.exports = profile;
 
   
   
