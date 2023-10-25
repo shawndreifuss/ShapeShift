@@ -58,7 +58,7 @@ router.get('/', withAuth, async (req, res) => {
     res.render('profilepage')
   })
 
-  router.get('/blogs', async (req, res) => {
+  router.get('/blogs',withAuth, async (req, res) => {
     try {
         const blogData = await Blog.findAll({
             include: [

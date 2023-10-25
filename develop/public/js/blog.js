@@ -25,5 +25,4 @@ const blogPostHandler = async (event) => {
       };
 
 
-
 submitbtn.addEventListener('click', blogPostHandler);
