@@ -97,16 +97,16 @@ button[type="submit"]:hover {
 
 <body>
     <header>
-        <h1 id="header">Blog Posts</h1>
+        <h1 id="header">Workout Posts</h1>
     </header>
 
 <main>
     <!-- Blog post submission form -->
     <section id="submit-blog-post">
-        <h2>Submit Your Blog Post</h2>
+        <h2>Submit Your Workout</h2>
             <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
+                <label for="category">Type of Workout:</label>
+                <input type="text" id="category" name="category" required>
             </div>
             
             <div class="form-group">
@@ -114,8 +114,24 @@ button[type="submit"]:hover {
                 <input type="date" id="date" name="date" required>
             </div>        
             <div class="form-group">
-                <label for="content">Content:</label>
-                <textarea id="content" name="content" rows="10" required></textarea>
+                <label for="repst">Reps:</label>
+                <textarea id="reps" name="content" rows="1" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="sets">Sets:</label>
+                <textarea id="sets" name="content" rows="1" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="distance">Distance:</label>
+                <textarea id="distance" name="content" rows="1" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration:</label>
+                <textarea id="duration" name="content" rows="1" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="details">Details:</label>
+                <textarea id="details" name="content" rows="5" required></textarea>
             </div>
             
             <button id="submitBtn" type="submit">Submit Post</button>
@@ -125,12 +141,17 @@ button[type="submit"]:hover {
 <section id="example-blog-posts">
     <h2>Blog Posts</h2>
 
-    {{#each blogs}}
+    {{#each workouts as |workout|}}
     <section class="blog-post">
-        <h2>{{title}}</h2>
-        <p class="date">{{format_date date}}</p>
-        <p class="author">By {{user.name}}</p>
-        <p>{{content}}</p>
+        <a href="/workout/{{workout.id}}"></a>
+        <h2 class = "category">Workout Type: {{workout.category}}</h2>
+        <p class="date">Date:{{format_date workout.workout_date}}</p>
+        <p class ="reps">Reps: {{workout.reps}}</p>
+        <p class = "sets">Sets: {{workout.sets}}</p>
+        <p class = "duration">Duration: {{workout.duration}}</p>
+        <p class ="distance">Distance: {{workout.distance}}</p>
+        <p class ="details">Details: {{workout.details}}</p>
+        <p class="author">By {{workout.user.name}}</p>
     </section>
     {{/each}}
 
@@ -139,6 +160,5 @@ button[type="submit"]:hover {
 
 
 </main>
-    <script src="js/blog.js"></script>
+    <script src="js/workout.js"></script>
 </body>
-
