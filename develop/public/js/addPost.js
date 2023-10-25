@@ -4,12 +4,12 @@
 const addBlogHandler = async (event) => {
     event.preventDefault();
   
-    const title = document.querySelector('#blog-title').value.trim();
-    const author = document.querySelector('#blog-author').value.trim();
-    const content = document.querySelector('#blog-content').value.trim();
-    console.log(title,author,content)
+    const title = document.querySelector('#post-title').value.trim();
+    const image = document.querySelector('#post-image').value.trim();
+    const caption = document.querySelector('#post-content').value.trim();
+    console.log(title,image,caption)
     if (title && author && content) {
-      const response = await fetch('/api/blogs', {
+      const response = await fetch('/api/blogs/post', {
         method: 'POST',
         body: JSON.stringify({ title, author, content }),
         headers: { 'Content-Type': 'application/json' },

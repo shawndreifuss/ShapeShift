@@ -5,15 +5,15 @@ const withAuth = require('../../utils/auth');
 // Creating a new blog
 router.post('/', withAuth, async (req, res) => {
   try {
-    console.log("POST route blog",req.body)
-    const newBlog = await Blog.create({
     
+    const newBlog = await Blog.create({
+      
       title: req.body.title,
       content: req.body.content,
      author: req.body.author, 
       user_id: req.session.user_id, 
     });
-    console.log("NEW BLOG _____",newBlog)
+   
     res.status(201).json(newBlog);
   } catch (err) {
     console.error(err)
@@ -25,6 +25,7 @@ router.post('/', withAuth, async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll();
+
     res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
@@ -89,4 +90,26 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+
+// Creating a new Post
+router.post('/post', withAuth, async (req, res) => {
+  try {
+    
+    const newPost = await Post.create({
+      
+      title: req.body.title,
+      image: req.body.image,
+      caption: req.session.caption, 
+    });
+   
+    res.status(201).json(newPost);
+  } catch (err) {
+    console.error(err)
+    res.status(500).json(err);
+  }
+});
+
+
 module.exports = router;
+
+

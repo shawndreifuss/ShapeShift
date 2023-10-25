@@ -1,4 +1,5 @@
 <style>
+  
   .hero {
     background-color: antiquewhite;
     height: 100%;
@@ -140,22 +141,29 @@
             <h1></h1>
             <h1>Blogs <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
                 data-target="#ModalLoginForm">+</button></h1>
-            {{#each blogs as |blog| }}
-            <a href="/blogs/{{blog.id}}">
+                <div class="post">
+      <img src="" alt="Post Image">
+      <p></p>
+      <p class="likes"> likes</p>
+    </div>
+            {{#each posts as |post| }}
+            <a href="/blogs/{{user.id}}">
               <div class="post">
-                <h3>{{blog.author}}</h3>
-                <h4>{{format_date blog.date}}</h4>
-                <h4>{{blog.title}}</h4>
-                <p>{{blog.content}}</p>
+                <h3>{{user}}</h3>
+                <h4>{{format_date post.date}}</h4>
+                <h4>{{post.title}}</h4>
+                <p>{{post.content}}</p>
               </div>
             </a>
             {{/each}}
           </div>
+  
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <footer class="container-fluid text-center">
   <p>ShapeShifters </p>
 </footer>
@@ -171,20 +179,20 @@
           <form role="form" method="POST" action="">
             <input type="hidden" name="_token" value="">
             <div class="form-group">
-              <label class="control-label">Author: </label>
-              <div>
-                <input type="text" class="form-control input-lg"  id="blog-author" name="name" value="">
-              </div>
-            </div>
-            <div class="form-group">
               <label class="control-label">Title: </label>
               <div>
-                <input type="text" class="form-control input-lg" name="email" id="blog-title"value="">
+                <input type="text" class="form-control input-lg"  id="post-title" name="name" value="">
               </div>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Content</label>
-              <textarea class="form-control" id="blog-content" rows="3"></textarea>
+              <label class="control-label">Image: </label>
+              <div>
+                <input type="text" class="form-control input-lg" name="email" id="post-image"value="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Caption</label>
+              <textarea class="form-control" id="blog-caption" rows="3"></textarea>
             </div>
             <div class="form-group">
               <div>
