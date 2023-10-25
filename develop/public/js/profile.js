@@ -51,5 +51,3 @@
   
 
   // this code below is for saving the items inputted to the page
-
-  

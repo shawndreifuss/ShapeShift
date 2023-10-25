@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, STRING } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
@@ -20,6 +20,29 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    birthdate: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    preferredUnits: {
+      type: DataTypes.STRING,
+      allowNull: false, 
+    },
+
+    timezones: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    
     email: {
       type: DataTypes.STRING,
       allowNull: false,
