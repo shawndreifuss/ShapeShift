@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <link src="./css/profilepage.css">
+    <link src="/css/profilepage.css">
+
 
     <style> 
 * {
@@ -335,41 +336,6 @@ label {
     </div>
 </div>
 
-<!-- might just put this search feature  in the homepage -->
-<div class="search-bar">
-<script>
-  $( function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  } );
-  </script>
-  </div>
-  
 
 <div id="profile">
           <div class="profile-image">
@@ -383,11 +349,6 @@ label {
           <p>Lifted</p>
 
       </div>
- 
-<div class="ui-widget">
-  <label for="tags">Search: </label>
-  <input id="tags">
-</div>
 
 <label class="email" for="email-id">Email: </label>
 <input class="input-box" id="email-id" type="email"><br>
@@ -504,7 +465,7 @@ label {
           </div>
 </div>    
 
-<script src="./js/profile.js"></script>
+<script src="/js/profile.js"></script>
 
 </body>
 </html>
