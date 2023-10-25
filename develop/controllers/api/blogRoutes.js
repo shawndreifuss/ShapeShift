@@ -1,16 +1,19 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Creating a new blog
 router.post('/post', async (req, res) => {
   try {
+  
     const newBlog = await Blog.create({
       ...req.body,
       user_id: req.session.user_id,
     });
+   
     res.status(201).json(newBlog);
   } catch (err) {
+    console.error(err)
     res.status(500).json(err);
   }
 });
@@ -19,6 +22,7 @@ router.post('/post', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll();
+
     res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
@@ -83,4 +87,25 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+
+// Creating a new blog
+router.post('/post', withAuth, async (req, res) => {
+  try {
+ 
+    const newPost = await Post.create({
+      
+      title: req.body.title,
+      //image: req.body.image,
+      caption: req.body.caption
+     
+    });
+   console.log("wooo")
+    res.status(200).json(newPost);
+  } catch (err) {
+    console.error(err)
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
+
+
