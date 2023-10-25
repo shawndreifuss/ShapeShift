@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, Workout, User, Post } = require('../models');
+const { Blog, Workout, User, Post, Profile } = require('../models');
 const withAuth = require('../utils/auth')
 
 router.get('/', withAuth, async (req, res) => {
@@ -56,8 +56,8 @@ router.get('/', withAuth, async (req, res) => {
     res.render('login');
   });
 
-  router.get('/profilepage' , (req,res) => {
-    res.render('profilepage')
+  router.get('/profile' , (req,res) => {
+    res.render('ProfilePage')
   })
 
   router.get('/blogs',withAuth, async (req, res) => {
@@ -86,4 +86,38 @@ router.get('/', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+router.get('/workouts', async (req, res) => {
+    try {
+        const workoutData = await Workout.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                    order:[['date', 'DEC']],
+                }
+            ]
+        });
+
+        // Serialize data so the template can read it
+        const workouts = workoutData.map((workout) => workout.get({ plain: true }));
+        res.render('workout', { 
+            workouts, 
+            loggedIn: req.session.logged_in 
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+router.get('/profile', async (req, res) => {
+    try {
+      const profileData = await Profile.findAll();
+      res.render('ProfilePage', profileData)
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+
   module.exports = router
