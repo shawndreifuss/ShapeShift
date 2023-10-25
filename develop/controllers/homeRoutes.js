@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Blog, Workout, User } = require('../models');
 const withAuth = require('../utils/auth')
 
-router.get('/', withAuth,  async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
        
         const workoutData = await Workout.findAll()
@@ -29,8 +29,6 @@ router.get('/', withAuth,  async (req, res) => {
             blogs, 
             loggedIn: req.session.logged_in 
           });
-      //res.json({user, workouts, blogs})
-
     } catch (err) {
       res.status(500).json(err);
     }
@@ -60,11 +58,30 @@ router.get('/', withAuth,  async (req, res) => {
     res.render('profilepage')
   })
 
-router.get('/blogs', (req, res) => {
-  res.render('blog')
-})
+  router.get('/blogs',withAuth, async (req, res) => {
+    try {
+        const blogData = await Blog.findAll({
+            include: [
+                {   model: Workout,
+                    model: User,
+                    attributes: ['name'],
+                    order:[['date', 'DEC']],
+                    include: {
+                        model: Workout,
+                        as: 'workouts'
+                    }
+                }
+            ],
+        });
 
-
-
-
+        // Serialize data so the template can read it
+        const blogs = blogData.map((blog) => blog.get({ plain: true }));
+        res.render('blog', { 
+            blogs, 
+            loggedIn: req.session.logged_in 
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
   module.exports = router

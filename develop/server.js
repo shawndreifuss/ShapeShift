@@ -45,10 +45,4 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
 
-app.get('/develop/views/blog.handlebars', (req, res) => {
-  res.render('blog');
-});
 
-app.get('/develop/views/ProfilePage.handlebars', (req, res) => {
-  res.render('ProfilePage');
-});
