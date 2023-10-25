@@ -1,18 +1,105 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ShapeShift Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
-    <link href="../public/css/blog-style.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-</head>
+<style>
+
+body {
+    font-family: inherit, sans-serif;
+    background-color: #FAF3E0; 
+    color: #333; 
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ffffff; 
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.blog-post {
+    background-color: #FFF; 
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.blog-post h2 {
+    margin-top: 0;
+    color: #555; 
+}
+
+.date, .author {
+    color: #888; 
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+#submit-blog-post {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 60%; /* Set width to 60% of the container */
+    margin-left: auto; /* Center the form horizontally */
+    margin-right: auto; /* Center the form horizontally */
+}
+
+#submit-blog-post h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #333;
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: #FFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+</style>
+
 <body>
     <header>
-        <h1>Blog Posts</h1>
+        <h1 id="header">Blog Posts</h1>
     </header>
-    <main>
+<main>
     {{#each blogs}}
     <section class="blog-post">
         <h2>{{title}}</h2>
@@ -22,13 +109,70 @@
     </section>
     {{/each}}
     
-    {{#if logged_in}}
-    <section>
-        <!-- need to add Add-Blog form or button for logged in users -->
+    <!-- Blog post submission form -->
+    <section id="submit-blog-post">
+        <h2>Submit Your Blog Post</h2>
+        <form action="/submit-blog-post" method="POST">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="authorName">Author Name:</label>
+                <input type="text" id="authorName" name="author_name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" rows="10" required></textarea>
+            </div>
+            
+            <button type="submit">Submit Post</button>
+        </form>
     </section>
-    {{/if}}
+<section id="example-blog-posts">
+    <h2>Blog Posts</h2>
+
+    <section class="blog-post">
+        <h2>The Power of Burpees</h2>
+        <p class="date">October 26, 2023</p>
+        <p class="author">By Shawn</p>
+        <p>Burpees are often touted as a full-body exercise that can build strength and improve cardiovascular fitness. And while they do engage multiple muscle groups, the problem lies in their execution. I've noticed that very few people perform burpees with proper form, which can lead to ineffective results and even injuries.A better approach to boost your cardiovascular health and strength is to incorporate well-executed squats and pushups and do cardio sessions separately on non-weight training days.</p>
+    </section>
+
+    <section class="blog-post">
+        <h2>High-Intensity Interval Training: HIIT</h2>
+        <p class="date">October 2, 2023</p>
+        <p class="author">By Raj</p>
+        <p>Yes, HIIT made the list! High-intensity interval training has become super popular because of its timesaving potential. And yes, HIIT can be a very effective way to quickly spike your heart rate by combining cardiovascular and strength exercises.However, cramming everything into a single workout often limits the benefits of building muscular strength. Additionally, HIIT isn't always suitable for beginners, as it can lead to overuse injuries and even cellular damage.</p>
+    </section>
+
+    <section class="blog-post">
+        <h2>Lunge with a bicep curl</h2>
+        <p class="date">October 24, 2023</p>
+        <p class="author">By Nathan</p>
+        <p>This is another example of a compound move that would be more effective if separated. While adding bicep curls to your lunges is a way to get your upper body involved, they can limit your leg strength gains. Since the biceps are smaller muscles, you'll only be able to curl a light weight while lunging.I believe that a better approach is to separate these exercises, performing lunges with significantly heavier dumbbells. This way, you'll maximize your leg strength and overall workout efficiency.</p>
+    </section>
+
+    <section class="blog-post">
+        <h2>The Power of Juicing for Your Fitness Journey</h2>
+        <p class="date">October 23, 2023</p>
+        <p class="author">By Meline Sarkissian</p>
+        <p>When it comes to enhancing your fitness journey, you might think of hitting the gym, following a strict workout routine, and maintaining a balanced diet. But have you ever considered adding a glass of fresh juice to your daily regimen? Juicing is not just a health fad; it's a fantastic way to boost your fitness goals. Let's explore the incredible benefits of incorporating fresh juices into your fitness routine. Freshly squeezed juices are a concentrated source of essential vitamins, minerals, and antioxidants. Whether it's a vibrant green juice packed with leafy greens or a fruity blend bursting with antioxidants, these nutrient-packed beverages provide your body with a natural energy boost. The vitamins and minerals in these juices can help you feel more awake and energized for your workouts.</p>
+    </section>
+
+</section>
+
+
+
 </main>
 
     <script src="/js/main.js"></script>
 </body>
-</html>
+
