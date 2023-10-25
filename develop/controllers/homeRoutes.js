@@ -23,6 +23,7 @@ router.get('/', withAuth,  async (req, res) => {
         // Serialize data so the template can read it
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
         const workouts = workoutData.map((workout) => workout.get({ plain: true}))
+        console.log(req.session,"Homepage")
        res.render('homepage',{ 
             user: req.session.name,
             workouts,

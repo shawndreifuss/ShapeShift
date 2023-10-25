@@ -1,25 +1,28 @@
 const router = require('express').Router();
-const { Blog } = require('../models');
-const withAuth = require('../utils/auth');
+const { Blog } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // Creating a new blog
-router.post('/blogs', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
+    console.log("POST route blog",req.body)
     const newBlog = await Blog.create({
     
       title: req.body.title,
       content: req.body.content,
-      
+     author: req.body.author, 
       user_id: req.session.user_id, 
     });
+    console.log("NEW BLOG _____",newBlog)
     res.status(201).json(newBlog);
   } catch (err) {
+    console.error(err)
     res.status(500).json(err);
   }
 });
 
 
-router.get('/blogs', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll();
     res.status(200).json(blogData);
@@ -29,7 +32,7 @@ router.get('/blogs', async (req, res) => {
 });
 
 // Get a specific blog by ID
-router.get('blogs/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id);
     if (!blogData) {
@@ -43,7 +46,7 @@ router.get('blogs/:id', async (req, res) => {
 });
 
 // Update a blog by ID
-router.put('blogs/:id', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const updatedBlog = await Blog.update(
       {
