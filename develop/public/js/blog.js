@@ -19,7 +19,7 @@ const blogPostHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/blogs');
           } else {
-            alert("Please fill every forum");
+            alert("Please fill every form");
           }
         }
       };

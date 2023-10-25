@@ -144,7 +144,7 @@ button[type="submit"]:hover {
     {{#each workouts as |workout|}}
     <section class="blog-post">
         <a href="/workout/{{workout.id}}"></a>
-        <h2>Workout Type:{{workout.category}}</h2>
+        <h2 class = "category">Workout Type: {{workout.category}}</h2>
         <p class="date">Date:{{format_date workout.workout_date}}</p>
         <p class ="reps">Reps: {{workout.reps}}</p>
         <p class = "sets">Sets: {{workout.sets}}</p>
@@ -160,5 +160,5 @@ button[type="submit"]:hover {
 
 
 </main>
-    <script src="js/blog.js"></script>
+    <script src="js/workout.js"></script>
 </body>
