@@ -1,8 +1,20 @@
 [
     {    
-    "title": "The Power of Burpees",
-    "image": "../images/AdobeStock_486189863_Preview.jpeg",
-    "caption": "Burpees are often touted as a full-body exercise that can build strength and improve cardiovascular fitness. And while they do engage multiple muscle groups, the problem lies in their execution. I've noticed that very few people perform burpees with proper form, which can lead to ineffective results and even injuries.A better approach to boost your cardiovascular health and strength is to incorporate well-executed squats and pushups and do cardio sessions separately on non-weight training days.",
+    "title": "Shifting Shapes",
+    "image": "../images/04012019-25.jpg",
+    "caption": "First post ever woo!",
+    "user_id":1
+    },
+    {    
+    "title": "New Gym",
+    "image": "../images/360_F_263042244_sZry3DZkkgoBfuSxR0ZN8DN9tiL6oSEW.jpg",
+    "caption": "New gym who this?",
+    "user_id":1
+    },
+    {    
+    "title": "The Power ",
+    "image": "../images/360_F_113657105_Bktota7BzQ5cEUcZb4l0D4qSD2Sw08P2.jpg",
+    "caption": "Getting huge with dumbells .",
     "user_id":1
     }
 ]
