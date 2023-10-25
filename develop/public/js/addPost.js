@@ -1,15 +1,19 @@
 
+
+let image = ""
+
+
 const addPostHandler = async (event) => {
     event.preventDefault();
   
     const title = document.querySelector('#post-title').value.trim();
-    const image = document.querySelector('#customFile').value.trim();
     const caption = document.querySelector('#post-caption').value.trim();
-   console.log(image)
-    if (title && caption) {
+    
+
+    if (title && image && caption) {
       const response = await fetch('/api/post', {
         method: 'POST',
-        body: JSON.stringify({ title, caption }),
+        body: JSON.stringify({ title, image, caption }),
         headers: { 'Content-Type': 'application/json' },
       });
   console.log(response)
@@ -23,6 +27,20 @@ const addPostHandler = async (event) => {
   
   
   document
-    .querySelector('#ModalLoginForm')
-    .addEventListener('submit', addPostHandler);
+    .querySelector('#submit-post')
+    .addEventListener('click', addPostHandler);
   
+    var myWidget = cloudinary.createUploadWidget({
+      cloudName: 'dde3qjdf8', 
+      uploadPreset: 'xrrgpvtr'}, (error, result) => { 
+        if (!error && result && result.event === "success") { 
+          console.log('Done! Here is the image info: ', result.info); 
+          image = result.info.url
+        }
+      }
+    )
+    
+    document.getElementById("upload_widget").addEventListener("click", function(event){
+      event.preventDefault();
+        myWidget.open();
+      }, false);
