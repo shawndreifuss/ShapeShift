@@ -57,9 +57,38 @@ router.get('/', withAuth,  async (req, res) => {
   });
 
 
-router.get('/blogs', (req, res) => {
-  res.render('blog')
-})
+  router.get('/blogs', async (req, res) => {
+    try {
+        const blogData = await Blog.findAll({
+            include: [
+                {
+                    model: Workout,
+                    attributes: ['name'],
+                    order: [['date', 'DESC']],
+                    include: {
+                        model: User,
+                        as: 'workouts'
+                    }
+                }
+            ],
+        });
+
+        // Serialize data so the template can read it
+        const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
+        res.render('homepage', { 
+            blogs, 
+            loggedIn: req.session.logged_in 
+        });
+
+        // Uncomment the below line if you want to send JSON response
+        // res.json({user, workouts, blogs});
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 
 
