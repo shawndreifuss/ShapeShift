@@ -40,7 +40,7 @@ Workout.init(
       },
       completed: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        
         defaultValue: false
       },
       user_id: {

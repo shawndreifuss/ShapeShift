@@ -137,6 +137,11 @@
     <div class="row content ">
       <div class="col-sm-2 sidenav ">
         <div class="side ">
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                data-target="#ModalWorkoutForm">+</button>
+            
+<!-- Modal -->
           <h3 id="underlined">Try these Workouts!</h3>
           {{#each workouts as |workout|}}
           <a href="/workout/{{workout.id}}">
@@ -157,7 +162,7 @@
           <div class="col-sm-8 text-center">
             <h1>Welcome {{user}}</h1>
             <h1></h1>
-            <h1>Blogs <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+            <h1>Blogs <button type="button" class="btn btn-primary btn-lg" data-toggle="modal2"
                 data-target="#ModalLoginForm">+</button></h1>
               
             {{#each posts as |post| }}
@@ -176,6 +181,7 @@
     </div>
   </div>
 </div>
+
  
 <footer class="container-fluid text-center">
   <p>ShapeShifters </p>
@@ -218,4 +224,60 @@
       </div>
     </div>
   </div>
+<!-- modal for workout form -->
+
+<div id="ModalWorkoutForm" class="modal2 fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-body">
+          <h1>Add Post</h1>
+          <form role="form" method="POST" action="">
+            <input type="hidden" name="_token" value="">
+            <div class="form-group">
+                    
+                    <div class="form-outline mb-4">
+                        <input type="text" id="category" class="form-control" />
+                        <label class="form-label" for="name4">Category</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="text" id="reps" class="form-control" />
+                        <label class="form-label" for="name4">Reps</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="text" id="sets" class="form-control" />
+                        <label class="form-label" for="name4">Sets</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="text" id="weight" class="form-control" />
+                        <label class="form-label" for="name4">Weight</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="text" id="distance" class="form-control" />
+                        <label class="form-label" for="name4">Distance</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="text" id="duration" class="form-control" />
+                        <label class="form-label" for="name4">Duration</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="text" id="details" class="form-control" />
+                        <label class="text-label" for="name4">Details</label>
+                    </div>
+
+                    <button id="submit-workout" type="submit" class="btn btn-primary btn-block">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+  
   <script src="/js/addPost.js">
