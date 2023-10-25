@@ -10,10 +10,6 @@ body {
     background-color: #FAF3E0; 
 }
 
-.background {
-  background-image:url("../public/images/AdobeStock_486189863_Preview.jpeg");
-}
-
 /* Style the jQuery UI widget and input container */
 .ui-widget {
     text-align: center;
@@ -218,7 +214,7 @@ button {
     height: 39px;
     width: 95%;
     margin: auto;
-    margin-top: 7px;
+    margin-top: 115px;
 }
 
 button:hover {
