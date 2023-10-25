@@ -1,4 +1,8 @@
 <style>
+  #top{
+    font-size: 8rem;
+    margin-bottom: 20px;
+  }
   .post {
       border: 1px solid #dbdbdb;
       border-radius: 5px;
@@ -137,12 +141,9 @@
     <div class="row content ">
       <div class="col-sm-2 sidenav ">
         <div class="side ">
-          <!-- Button trigger modal -->
-  
-<!-- Modal -->
           <h3 id="underlined">Try these Workouts!</h3>
           {{#each workouts as |workout|}}
-          <a href="/workout/{{workout.id}}">
+          <a href="/workouts">
             <h4> {{format_date workout.workout_date}}</h4>
             <p>{{workout.category}}</p>
             <p>Reps: {{workout.reps}}</p>
@@ -158,10 +159,10 @@
       <div class="container-fluid text-center">
         <div class="row content">
           <div class="col-sm-8 text-center">
-            <h1>Welcome {{user}}</h1>
-            <h1></h1>
-            <h1>Blogs <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
-                data-target="#ModalLoginForm">+</button></h1>
+            <h1> <div id="top">Welcome {{user}}</div></h1>
+           
+            <h2>Recent Posts </h2><button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                data-target="#ModalLoginForm">Create Post</button>
               
             {{#each posts as |post| }}
             <div class="post">
@@ -169,7 +170,6 @@
       <img src="{{post.image}}" alt="Post Image">
       <div>{{format_date post.date}}</div>
       <p>{{post.caption}}</p>
-      <p class="likes"> likes {{post.likes}}</p>
     </div>
             {{/each}}
           </div>
@@ -180,7 +180,21 @@
   </div>
 </div>
 
- 
+ <div class="container">
+  <svg viewBox="0 0 960 300">
+    <symbol id="s-text">
+      <text text-anchor="middle" x="50%" y="80%">Montserrat</text>
+    </symbol>
+
+    <g class = "g-ants">
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+    </g>
+  </svg>
+</div>
 <footer class="container-fluid text-center">
   <p>ShapeShifters </p>
 </footer>
