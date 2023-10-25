@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { profile } = require('../models');
-const withAuth = require('../utils/auth');
+const { Profile } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
-      const profileData = await profile.findAll();
+      const profileData = await Profile.findAll();
       res.status(200).json(profileData);
     } catch (err) {
       res.status(500).json(err);
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
   // Creating a new profile
 router.post('/', withAuth, async (req, res) => {
     try {
-      const newProfile = await profile.create({
+      const newProfile = await Profile.create({
       
         title: req.body.title,
         content: req.body.content,
@@ -32,7 +32,7 @@ router.post('/', withAuth, async (req, res) => {
   // Get a specific profile by ID
   router.get('/:email', async (req, res) => {
     try {
-      const profileData = await profile.findByPk(req.params.id);
+      const profileData = await Profile.findByPk(req.params.id);
       if (!profileData) {
         res.status(404).json({ message: 'Profile not found' });
         return;
@@ -46,7 +46,7 @@ router.post('/', withAuth, async (req, res) => {
   // Update a profile by ID
   router.put('/:id', withAuth, async (req, res) => {
     try {
-      const updatedProfile = await profile.update(
+      const updatedProfile = await Profile.update(
         {
   
           title: req.body.title,
@@ -72,7 +72,7 @@ router.post('/', withAuth, async (req, res) => {
   // Delete a profile by email
   router.delete('/:email', withAuth, async (req, res) => {
     try {
-      const deletedProfile = await profile.destroy({
+      const deletedProfile = await Profile.destroy({
         where: {
           id: req.params.id,
         },
