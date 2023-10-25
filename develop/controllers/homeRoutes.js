@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Blog, Workout, User } = require('../models');
 const withAuth = require('../utils/auth')
 
-router.get('/', withAuth,  async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
        
         const workoutData = await Workout.findAll()
@@ -29,8 +29,6 @@ router.get('/', withAuth,  async (req, res) => {
             blogs, 
             loggedIn: req.session.logged_in 
           });
-      //res.json({user, workouts, blogs})
-
     } catch (err) {
       res.status(500).json(err);
     }
@@ -61,12 +59,12 @@ router.get('/', withAuth,  async (req, res) => {
     try {
         const blogData = await Blog.findAll({
             include: [
-                {
-                    model: Workout,
+                {   model: Workout,
+                    model: User,
                     attributes: ['name'],
-                    order: [['date', 'DESC']],
+                    order:[['date', 'DEC']],
                     include: {
-                        model: User,
+                        model: Workout,
                         as: 'workouts'
                     }
                 }
@@ -75,22 +73,12 @@ router.get('/', withAuth,  async (req, res) => {
 
         // Serialize data so the template can read it
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
-
-        res.render('homepage', { 
+        res.render('blog', { 
             blogs, 
             loggedIn: req.session.logged_in 
         });
-
-        // Uncomment the below line if you want to send JSON response
-        // res.json({user, workouts, blogs});
-
     } catch (err) {
         res.status(500).json(err);
     }
 });
-
-
-
-
-
   module.exports = router
