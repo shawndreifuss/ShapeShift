@@ -54,54 +54,81 @@
 
   // JavaScript code to save user input to local storage when using the class "save"
 
-// Get the Save button element by its class
-const saveButtons = document.getElementsByClassName('save');
-
-// Loop through all elements with the class "save"
-for (const saveButton of saveButtons) {
-  // Add a click event listener to each Save button
-  saveButton.addEventListener('click', function() {
-    // Get user input from the input field(s) you want to save
-    // Adjust this part based on your specific input elements
-    const userName = document.getElementById('name1').value;
-    // ...
-
-    // Check if user input is not empty and save it to local storage
-    if (userName.trim() !== '') {
-      localStorage.setItem('userName', userName);
-      // ...
-
-      alert('Data saved successfully.');
-    } else {
-      alert('Please enter a name before saving.');
-    }
-  });
-}
-
-// Check if data exists in local storage when the page loads
-window.addEventListener('load', function() {
-  const savedUserName = localStorage.getItem('userName');
-  // ...
-  // Populate input fields or elements with the saved data
-  // ...
-});
-
-// JavaScript code to save user input to local storage when using the class "save"
-
 // Function to save user input to local storage
 function saveUserData() {
-  // Get user input from the input field(s) you want to save
-  // Adjust this part based on your specific input elements
   const userName = document.getElementById('name1').value;
-  // ...
+  const userEmail = document.getElementById('email-id').value;
+  const userGender = document.querySelector('input[name="gender"]:checked').value;
+  const userBirthMonth = document.getElementById('b-month').value;
+  const userBirthDay = document.getElementById('b-day').value;
+  const userBirthYear = document.getElementById('b-year').value;
 
-  // Check if user input is not empty and save it to local storage
+  // Check if user inputs are not empty and save them to local storage
   if (userName.trim() !== '') {
     localStorage.setItem('userName', userName);
-    // ...
+  }
 
-    alert('Data saved successfully.');
-  } else {
-    alert('Please enter a name before saving.');
+  if (userEmail.trim() !== '') {
+    localStorage.setItem('userEmail', userEmail);
+  }
+
+  if (userGender) {
+    localStorage.setItem('userGender', userGender);
+  }
+
+  if (userBirthMonth.trim() !== '') {
+    localStorage.setItem('userBirthMonth', userBirthMonth);
+  }
+
+  if (userBirthDay.trim() !== '') {
+    localStorage.setItem('userBirthDay', userBirthDay);
+  }
+
+  if (userBirthYear.trim() !== '') {
+    localStorage.setItem('userBirthYear', userBirthYear);
+  }
+
+  alert('Data saved successfully.');
+}
+
+function populateUserData() {
+  const savedUserName = localStorage.getItem('userName');
+  const savedUserEmail = localStorage.getItem('userEmail');
+  const savedUserGender = localStorage.getItem('userGender');
+  const savedUserBirthMonth = localStorage.getItem('userBirthMonth');
+  const savedUserBirthDay = localStorage.getItem('userBirthDay');
+  const savedUserBirthYear = localStorage.getItem('userBirthYear');
+
+  if (savedUserName) {
+    document.getElementById('name1').value = savedUserName;
+  }
+
+  if (savedUserEmail) {
+    document.getElementById('email-id').value = savedUserEmail;
+  }
+
+  if (savedUserGender) {
+    document.querySelector(`input[name="gender"][value="${savedUserGender}"]`).checked = true;
+  }
+
+  if (savedUserBirthMonth) {
+    document.getElementById('b-month').value = savedUserBirthMonth;
+  }
+
+  if (savedUserBirthDay) {
+    document.getElementById('b-day').value = savedUserBirthDay;
+  }
+
+  if (savedUserBirthYear) {
+    document.getElementById('b-year').value = savedUserBirthYear;
   }
 }
+
+const saveButtons = document.getElementsByClassName('save');
+
+for (const saveButton of saveButtons) {
+  saveButton.addEventListener('click', saveUserData);
+}
+
+window.addEventListener('load', populateUserData);
+
