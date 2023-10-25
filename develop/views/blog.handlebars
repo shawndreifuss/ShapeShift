@@ -95,11 +95,33 @@ button[type="submit"]:hover {
 
 </style>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShapeShift Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link href="/css/blog-style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+</head>
 <body>
     <header>
         <h1 id="header">Blog Posts</h1>
     </header>
+
 <main>
+    <main>
+    {{#each blogs as |blog|}}
+    <section class="blog-post">
+        <h2>{{blog.title}}</h2>
+        <p class="date">{{blog.date}}</p>
+        <p class="author">By {{blog.author}}</p>
+        <p>{{blog.content}}</p>
+    </section>
+    {{/each}}
+
+
     
     <!-- Blog post submission form -->
     <section id="submit-blog-post">
@@ -121,6 +143,7 @@ button[type="submit"]:hover {
             <button id="submitBtn" type="submit">Submit Post</button>
         </form>
     </section>
+
 <section id="example-blog-posts">
     <h2>Blog Posts</h2>
 
@@ -138,6 +161,12 @@ button[type="submit"]:hover {
 
 
 </main>
+    {{/if}}
+    </main>
+
+    <script src="/js/main.js"></script>
+
     <script src="js/blog.js"></script>
+
 </body>
 
