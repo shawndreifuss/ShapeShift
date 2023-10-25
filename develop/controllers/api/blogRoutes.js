@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Creating a new blog
 router.post('/', withAuth, async (req, res) => {
   try {
-    
+  
     const newBlog = await Blog.create({
       
       title: req.body.title,
@@ -91,25 +91,24 @@ router.delete('/:id', withAuth, async (req, res) => {
 });
 
 
-// Creating a new Post
+// Creating a new blog
 router.post('/post', withAuth, async (req, res) => {
   try {
-    
+ 
     const newPost = await Post.create({
       
       title: req.body.title,
-      image: req.body.image,
-      caption: req.session.caption, 
+      //image: req.body.image,
+      caption: req.body.caption
+     
     });
-   
-    res.status(201).json(newPost);
+   console.log("wooo")
+    res.status(200).json(newPost);
   } catch (err) {
     console.error(err)
     res.status(500).json(err);
   }
 });
-
-
 module.exports = router;
 
 

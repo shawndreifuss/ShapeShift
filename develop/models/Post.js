@@ -20,10 +20,10 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-      image: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+       image: {
+         type: DataTypes.STRING,
+           allowNull: true,
+       },
       caption:{
         type: DataTypes.TEXT,
         allowNull: false,

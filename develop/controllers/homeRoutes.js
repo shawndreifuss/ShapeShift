@@ -4,14 +4,14 @@ const withAuth = require('../utils/auth')
 
 router.get('/', withAuth,  async (req, res) => {
     try {
-        const postData = await Post.Findall()
+        const postData = await Post.findAll()
         const workoutData = await Workout.findAll()
         const blogData = await Blog.findAll({
             include: [
                 {   model: Workout,
                     model: User,
                     attributes: ['name'],
-
+                    order:[['date', 'DEC']],
                     include: {
                         model: Workout,
                         as: 'workouts'
@@ -24,7 +24,6 @@ router.get('/', withAuth,  async (req, res) => {
         const posts = postData.map((post) => post.get({ plain: true }));
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
         const workouts = workoutData.map((workout) => workout.get({ plain: true}))
-        
        res.render('homepage',{ 
             user: req.session.name,
             posts,
