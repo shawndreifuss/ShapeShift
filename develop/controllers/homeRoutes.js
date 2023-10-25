@@ -54,6 +54,9 @@ router.get('/', withAuth, async (req, res) => {
     res.render('login');
   });
 
+  router.get('/profilepage' , (req,res) => {
+    res.render('profilepage')
+  })
 
   router.get('/blogs', async (req, res) => {
     try {
