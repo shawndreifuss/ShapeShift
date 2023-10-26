@@ -4,8 +4,6 @@ const Blog = require('./Blog');
 const Workout = require('./Workout');
 const Post = require('./Post');
 const Profile = require('./profile');
-const Post = require('./Post')
-const Profile = require('./profile')
 // One user can have many blogs
 User.hasMany(Blog, {
     foreignKey: 'user_id'

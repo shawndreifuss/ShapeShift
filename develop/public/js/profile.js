@@ -1,4 +1,4 @@
- // code below is for the updated time zones// 
+// code below is for the updated time zones// 
  function populateTimezones() {
     const timezonesSelect = document.getElementById("timezones");
     const timezones = Intl.supportedValuesOf("timeZone");
@@ -48,6 +48,37 @@
       });
     });
   });
+
+  const submitProfile= async function(){
+    console.log('click')
+    const waistEl= document.querySelector('#Waist').value;
+    const hipsEl= document.querySelector('#Hips').value;
+    const neckEl= document.querySelector('#Neck').value;
+    const height1= document.querySelector('#height1').value;
+    const height2= document.querySelector('#height2').value;
+    const description = document.querySelector('#user-description').value
+    const timezones= document.querySelector('#timezones').value;
+    const bday= document.querySelector('#b-day').value;
+    const byear= document.querySelector('#b-year').value;
+    const bmonth=document.querySelector('#b-month').value;
+
+
+
+
+    const res= await fetch('/api/users/createProfile', {
+      method: 'POST' ,
+      body: JSON.stringify({
+        waistEl,hipsEl,neckEl,height1,height2,description,timezones,bday,bmonth,byear,
+      }),
+      headers:{'Content-Type': application/json}
+    })
+    if(res.ok){
+      document.location.reload()
+    } else{
+      alert('we blew it')
+    }
+  }
+  document.querySelector('#save-button').addEventListener('submit', submitProfile)
   
 
-  // this code below is for saving the items inputted to the page
+  

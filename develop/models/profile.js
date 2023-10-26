@@ -68,6 +68,27 @@ Profile.init( {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  gender: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  birthdate: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  preferredUnits: {
+    type: DataTypes.STRING,
+    allowNull: false, 
+  },
+
+  timezones: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  description: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   user_id: {
     type: DataTypes.INTEGER,
     references: {

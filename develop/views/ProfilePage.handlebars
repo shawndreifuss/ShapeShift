@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/profilepage.css">
 
 </head>
-<body>
+<body> --}}
     {{ header}}
     {{ section}}
     {{ footer}}
@@ -69,12 +69,13 @@
           <button class="profile-pic-button">Change profile picture</button>
       </div>
 
-<label class="email" for="email-id">Email: </label>
+{{!-- <label class="email" for="email-id">Email: </label>
 <input class="input-box" id="email-id" type="email"><br>
 
 <label for="name1">Your name:</label>
-<input id="name1" class="input-box" type="text"><br>
+<input id="name1" class="input-box" type="text"><br> --}}
 
+<form>
 <div class="radio buttons">
 <label id="gender" for="gender-option" class="control-label">Gender:</label>
 <label id="gender-option" for="gender_male" class="radio-button">
@@ -133,10 +134,10 @@
 
  
 
-<label for="password1">Password: </label>
+{{!-- <label for="password1">Password: </label>
 <input class="input-box" id="password1" type="password"><br>
 <label for="password2">Confirmed Password: </label>
-<input class="input-box" id="password2" type="password"><br>
+<input class="input-box" id="password2" type="password"><br> --}}
 
 <label for="units">Preferred units:</label>
 <select class="input-box" name="units" id="units">
@@ -181,11 +182,12 @@
 
 <!-- Code below is for the save button -->
  <div class="save-button ">
-              <button type="submit" class="save">Save</button>
+              <button type="submit" id='save-button' class="save">Save</button>
           </div>
-</div>    
+</div>
+</form>    
 
 <script src="/js/profile.js"></script>
 
-</body>
-</html>
+{{!-- </body>
+</html> --}}
