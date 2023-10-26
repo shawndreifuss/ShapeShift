@@ -15,7 +15,7 @@ router.post('/', withAuth, async (req, res) => {
       caption: req.body.caption
      
     });
-   console.log("wooo")
+   
     res.status(200).json(newPost);
   } catch (err) {
     console.error(err)
@@ -39,7 +39,7 @@ router.post('/workout', withAuth, async (req, res) => {
 
        
       });
-     console.log("wooo")
+    
       res.status(200).json(newPost);
     } catch (err) {
       console.error(err)

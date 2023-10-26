@@ -4,7 +4,7 @@ const logout = async () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
     });
-  req.session.destroy()
+  req.session.logged_in = false
     if (response.ok) {
       document.location.replace('/');
     } else {
