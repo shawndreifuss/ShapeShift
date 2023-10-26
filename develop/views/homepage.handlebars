@@ -1,138 +1,4 @@
-<style>
-  #top{
-    font-size: 8rem;
-    margin-bottom: 20px;
-  }
-  .post {
-      border: 1px solid #dbdbdb;
-      border-radius: 5px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
 
-    .post img {
-      width: 100%;
-    }
-
-    .post p {
-      margin-top: 10px;
-    }
-
-    .post .likes {
-      font-weight: bold;
-    }
-  
-  .hero {
-    background-color: antiquewhite;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-  }
-
-  .navbar {
-    margin-bottom: 0;
-    border-radius: 0;
-  }
-
-  .row.content {
-    height: 450px
-  }
-
-  .jumbotron {
-    background-image: url("../images/AdobeStock_486189863_Preview.jpeg");
-    text-align: center;
-  }
-
-  .side div {
-    height: 125px;
-  }
-
-  h5 {
-    font-style: oblique;
-  }
-
-  .sidenav {
-    padding-top: 60px;
-    margin-right: 60px;
-    height: 100%;
-  }
-
-  .side {
-    height: 100%;
-  }
-
-  .btn-default {
-    background: #000;
-    color: #fff;
-  }
-
-  .btn-default:hover {
-    background: #fff;
-    color: #000;
-  }
-
-  footer {
-    background-color: #555;
-    color: white;
-    padding: 15px;
-  }
-
-  @media screen and (max-width: 767px) {
-    .sidenav {
-      height: auto;
-      padding: 15px;
-    }
-
-    .row.content {
-      height: auto;
-    }
-  }
-
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-
-  .navigation {
-    display: flex;
-    gap: 20px;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-  }
-
-  .post {
-    border: 1px solid #000000;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #fff;
-  }
-
-  .workout {
-    background-color: #fff;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  .post p {
-    margin-top: 10px;
-  }
-
-  #underlined {
-    text-decoration: underline;
-  }
-
-  .background {
-    background-color: rgb(255, 255, 255);
-  }
-
-  .side a {
-    text-decoration: none;
-  }
-</style>
 <div class="hero">
   <div class="jumbotron" id="hero">
     <h1>ShapeShift</h1>
@@ -161,16 +27,34 @@
           <div class="col-sm-8 text-center">
             <h1> <div id="top">Welcome {{user}}</div></h1>
            
-            <h2>Recent Posts </h2><button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
-                data-target="#ModalLoginForm">Create Post</button>
-              
+            <h2>Recent Posts </h2>
+            <div class"=down">
+            <button id="button" data-toggle="modal"
+                data-target="#ModalLoginForm">+</button>
+</div><section class="main">
             {{#each posts as |post| }}
+            
+            
+    <div class="wrapper">
+        <div class="left-col">
+
             <div class="post">
-              <h4>{{post.title}}</h4>
-      <img src="{{post.image}}" alt="Post Image">
-      <div>{{format_date post.date}}</div>
-      <p>{{post.caption}}</p>
-    </div>
+                <div class="info">
+                    <div class="user">
+                        <div class="profile-pic"><img src="/images/ping.png" alt=""></div>
+                        <p class="username">{{post.title}}</p>
+                    </div>
+                    
+                </div>
+                <img src="{{post.image}}" class="post-image" alt="">
+                <div class="post-content">
+                    <p class="description"><span>{{post.user.name}} </span> {{post.caption}}</p>
+                    <p class="post-time">{{format_date post.date}}</p>
+                </div>
+                
+            </div>
+            </section>
+            
             {{/each}}
           </div>
   
@@ -237,8 +121,7 @@
     </div>
   </div>
 
-                        
-
+           
                   
 
   

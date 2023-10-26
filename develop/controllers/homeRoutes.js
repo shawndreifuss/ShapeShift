@@ -4,7 +4,15 @@ const withAuth = require('../utils/auth')
 
 router.get('/', withAuth, async (req, res) => {
     try {
-        const postData = await Post.findAll()
+        const postData = await Post.findAll({ limit: 10, order: [['updatedAt', 'DESC']],
+          include: [
+            
+            { order:['id', ['ASC']],
+              model: User,
+              attributes: ['name'],
+            }
+          ]
+        })
         const workoutData = await Workout.findAll()
         const blogData = await Blog.findAll({
             include: [
