@@ -33,7 +33,7 @@
     {{ privacyData}}
 </div>
 
-
+<div id="tab-container">
 <div class="upper-body">
     <div class="upper-body-data focus" id="general" tabindex="1">Profile</div>
     <div class="upper-body-data" id="Body_measurements" tabindex="1">Body Measurements</div>
@@ -158,7 +158,7 @@
 <br>
 </div>
 <!--  <div class="not-display" id="Body_measurements-container"> -->
-<div class="tab-content" id="Body_measurements-content">
+<div class="tab-content" id="Body_measurements-content" style="display: none">
     <h2>Body measurements</h2>
     {{ heightInput}}
     <label for="Waist">Waist:</label>
@@ -186,7 +186,7 @@
           </div>
 </div>
 </form>    
-
+</div>
 <script src="/js/profile.js"></script>
 
 {{!-- </body>

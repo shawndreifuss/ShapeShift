@@ -231,7 +231,16 @@ button:hover {
      float: right; 
 }
 
-  
+#Body_measurements-content, #general-content{
+    height: 300px;
+    position: relative;
+}
+
+#tab-container{
+    position:relative;
+    height: 600px;
+}
+
 
 #profile p {
     margin-top: 0px;
@@ -255,6 +264,9 @@ button:hover {
     border: none;
     border-top: 1px solid rgb(208, 200, 200);
     margin-left: 0px;
+    position:absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 /* Styling for labels, input boxes, and select elements */
