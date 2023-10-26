@@ -25,14 +25,20 @@
 
 Visit the page at ____ to register. Create a username and password, then log in to embark on your transformative journey to peak fitness with ShapeShift!
 
-  ## Questiosn
+  ## Questions
 
   Feel free to email us should you have any questions.
 
   ## GitHub
 
   Sarkissian321
+  n8hoang
+  shawndreifuss
+  Chaggar25
 
   ## Email
 
   sarkissian.mell321@yahoo.com
+  rajvirchaggar@gmail.com
+  dreifussshawn123@gmail.com
+  natehoang911@gmail.com
