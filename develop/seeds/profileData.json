@@ -1,0 +1,43 @@
+[
+    {
+        "waist": "32",
+        "hips": "23",
+        "neck": "23",
+        "heightft": "7",
+        "heightin": "5",
+        "gender": "male",
+        "birthdate": "04/14/1999",
+        "preferredUnits": "lbs",
+        "timezones": "Africa/Accra",
+        "description": "description"
+
+    },
+
+    {
+        "waist": "42",
+        "hips": "38",
+        "neck": "16",
+        "heightft": "5",
+        "heightin": "4",
+        "gender": "male",
+        "birthdate": "09/14/1929",
+        "preferredUnits": "lbs",
+        "timezones": "Africa/Accra",
+        "description": "description 2"
+
+    },
+
+    {
+        "waist": "29",
+        "hips": "27",
+        "neck": "14",
+        "heightft": "5",
+        "heightin": "8",
+        "gender": "female",
+        "birthdate": "09/14/1998",
+        "preferredUnits": "lbs",
+        "timezones": "America/Regina",
+        "description": "description 2"
+
+    }
+]
