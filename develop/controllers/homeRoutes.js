@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth')
 
 router.get('/', withAuth, async (req, res) => {
     try {
-        const postData = await Post.findAll({ limit: 10, order: [['updatedAt', 'DESC']],
+        const postData = await Post.findAll({ limit: 50, order: [['updatedAt', 'DESC']],
           include: [
             
             { order:['id', ['ASC']],
@@ -14,12 +14,11 @@ router.get('/', withAuth, async (req, res) => {
           ]
         })
         const workoutData = await Workout.findAll()
-        const blogData = await Blog.findAll({
+        const blogData = await Blog.findAll({ 
             include: [
                 {   model: Workout,
                     model: User,
                     attributes: ['name'],
-                    order:[['date', 'DEC']],
                     include: {
                         model: Workout,
                         as: 'workouts'
@@ -37,7 +36,7 @@ router.get('/', withAuth, async (req, res) => {
             posts,
             workouts,
             blogs, 
-            loggedIn: req.session.logged_in 
+            logged_in: req.session.logged_in 
           });
     } catch (err) {
       res.status(500).json(err);
@@ -88,7 +87,7 @@ router.get('/', withAuth, async (req, res) => {
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
         res.render('blog', { 
             blogs, 
-            loggedIn: req.session.logged_in 
+            logged_in: req.session.logged_in 
         });
     } catch (err) {
         res.status(500).json(err);
@@ -98,7 +97,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/workouts', async (req, res) => {
     try {
-        const workoutData = await Workout.findAll({
+        const workoutData = await Workout.findAll({limit: 50, order: [['updatedAt', 'DESC']],
             include: [
                 {
                     model: User,
@@ -112,7 +111,7 @@ router.get('/workouts', async (req, res) => {
         const workouts = workoutData.map((workout) => workout.get({ plain: true }));
         res.render('workout', { 
             workouts, 
-            loggedIn: req.session.logged_in 
+            logged_in: req.session.logged_in 
         });
     } catch (err) {
         res.status(500).json(err);
