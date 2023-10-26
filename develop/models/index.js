@@ -31,5 +31,4 @@ User.hasOne(Profile, {
     foreignKey: 'user_id'
 });
 
-module.exports = { User, Blog, Workout, Post };
 module.exports = { User, Blog, Workout, Post, Profile };
