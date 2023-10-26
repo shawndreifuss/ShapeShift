@@ -49,7 +49,8 @@
     });
   });
 
-  const submitProfile= async function(){
+  const submitProfile= async function(event){
+    event.preventDefault()
     console.log('click')
     const waistEl= document.querySelector('#Waist').value;
     const hipsEl= document.querySelector('#Hips').value;
@@ -78,7 +79,7 @@
       alert('we blew it')
     }
   }
-  document.querySelector('#save-button').addEventListener('submit', submitProfile)
+document.querySelector('#save-button').addEventListener('click', submitProfile)
   
 
   

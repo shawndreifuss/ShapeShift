@@ -66,7 +66,7 @@
           </div>
 
 
-          <button class="profile-pic-button">Change profile picture</button>
+          <button class="profile-pic-button" id="changepic">Change profile picture</button>
       </div>
 
 {{!-- <label class="email" for="email-id">Email: </label>
@@ -81,7 +81,7 @@
 <label id="gender-option" for="gender_male" class="radio-button">
     <input id="gender_male" type="radio" name="gender" value="male">
     Male
-</label><br>
+</label>
 <label id="gender-option" for="gender_female" class="radio-button">
     <input id="gender_female" type="radio" name="gender" value="female">
     Female
@@ -156,9 +156,9 @@
     <textarea id="user-description" name="user-description" class="input-box" rows="2" style="resize: both;"></textarea>
 </div>
 <br>
-
+</div>
 <!--  <div class="not-display" id="Body_measurements-container"> -->
-<div class="tab-content" id="Body_measurements-content"></div>
+<div class="tab-content" id="Body_measurements-content">
     <h2>Body measurements</h2>
     {{ heightInput}}
     <label for="Waist">Waist:</label>
@@ -170,13 +170,13 @@
     <label for="Neck">Neck:</label>
     <input class="input-box BM-input" type="number" id="Neck"><span class="input-box units">cm</span>
     <br>
-</div>
-
 <div class="height-input">
     <label for="height1 height2">Height:</label>
     <input class="input-box BM-input BM-height" type="number" id="height1"><span class="input-box units">ft</span>
     <input class="input-box BM-input BM-height" type="number" id="height2"><span class="input-box units">in</span>
 </div>
+</div>
+
 
 <br>
 
