@@ -38,14 +38,11 @@
                        <li><a href="/blogs">Blog</a></li>
                     <li><a href="/profile/">Profile</a></li>
                     <li><div class="input-group">
-                        <!--
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />  
-  </div></li><li><button type="button" class="btn btn-outline-primary">search</button></li>
-                      future development search bar --> 
+                       
                 </ul>
     
                 <ul class="nav navbar-nav navbar-right">
-                    {{#if loggedIn}}
+                    {{#if logged_in}}
                     <!-- User is logged in, so show Log Out button -->
                     <button id="logout" class="btn btn-default navbar-btn">
                         <span class="glyphicon glyphicon-log-out"></span> Log Out
@@ -64,10 +61,10 @@
         {{{body}}}
     </div>
 
-    {{#if loggedIn}}
-    <script src="/js/logout.js"></script>
+    {{#if logged_in}}
+    <script src="js/logout.js"></script>
     {{/if}}
-<script src"/js/search.js"></script>
+
 </body>
 
 </html>

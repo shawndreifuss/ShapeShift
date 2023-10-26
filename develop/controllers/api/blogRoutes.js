@@ -95,7 +95,7 @@ router.post('/post', withAuth, async (req, res) => {
     const newPost = await Post.create({
       
       title: req.body.title,
-      //image: req.body.image,
+      
       caption: req.body.caption
      
     });
