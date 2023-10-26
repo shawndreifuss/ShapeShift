@@ -97,12 +97,12 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/workouts', async (req, res) => {
     try {
-        const workoutData = await Workout.findAll({limit: 50, order: [['updatedAt', 'DESC']],
+        const workoutData = await Workout.findAll({
             include: [
                 {
                     model: User,
                     attributes: ['name'],
-                    order:[['date', 'DEC']],
+                    order:[['date', 'DESC']],
                 }
             ]
         });
