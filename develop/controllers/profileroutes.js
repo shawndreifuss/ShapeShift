@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Profile } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/',withAuth, async (req, res) => {
     try {
       const profileData = await Profile.findAll({
         where: {
